@@ -5,7 +5,7 @@
       "url": [
         "http://localhost/index.html",
         "http://localhost/case-studies/index.html",
-        "http://localhost/case-studies/hidden-attribution/index.html"
+        "http://localhost/case-studies/btc-ensemble-backtest/index.html"
       ],
       "numberOfRuns": 1,
       "settings": {
