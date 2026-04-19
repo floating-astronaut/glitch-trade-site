@@ -1,0 +1,77 @@
+---
+import Icon from '~/components/Icon.astro';
+import ImageSlot from '~/components/ImageSlot.astro';
+import Mascot from '~/components/Mascot.astro';
+---
+
+<section class="relative pt-20 pb-24 md:pt-28 md:pb-32 overflow-hidden">
+  {/* Ambient glow. Purely decorative; no layout impact. */}
+  <div aria-hidden="true" class="pointer-events-none absolute inset-0 -z-10">
+    <div class="absolute -top-40 left-1/2 -translate-x-1/2 h-[40rem] w-[60rem] max-w-[90vw] rounded-full
+                bg-[radial-gradient(circle_at_center,rgb(var(--color-brand)/0.18),transparent_60%)] blur-2xl"></div>
+    <div class="absolute top-40 right-[-10rem] h-[30rem] w-[30rem] rounded-full
+                bg-[radial-gradient(circle_at_center,rgb(var(--color-electric)/0.14),transparent_60%)] blur-2xl"></div>
+  </div>
+
+  <div class="container-app grid md:grid-cols-12 gap-10 items-center">
+    <div class="md:col-span-7 reveal">
+      <p class="eyebrow">
+        <Icon name="spark" size={14} />
+        AI Trading Systems · Crypto &amp; 100+ Exchanges
+      </p>
+      <h1 class="mt-5">
+        One indicator isn't an edge.<br/>
+        <span class="gradient-text">Nine models are.</span>
+      </h1>
+      <p class="mt-6 text-fluid-lg text-muted max-w-[56ch]">
+        Stop staring at charts. An ensemble of 9 specialized AI models watches every candle,
+        votes on the setup, and delivers a single high-confidence signal to your
+        <em class="not-italic text-fg">Telegram</em> in under five seconds.
+        On Pro and Elite, it auto-executes across 100+ exchanges too.
+      </p>
+
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a href="#contact" class="btn btn-primary">
+          Start free trial
+          <Icon name="arrow-right" size={16} />
+        </a>
+        <a href="#services" class="btn btn-secondary">
+          See how it works
+          <Icon name="arrow-up-right" size={16} />
+        </a>
+      </div>
+
+      <dl class="mt-10 grid grid-cols-3 gap-4 max-w-md" aria-label="Core numbers">
+        <div>
+          <dt class="text-fluid-xs uppercase tracking-wider text-subtle">Models in ensemble</dt>
+          <dd class="mt-1 font-mono text-fluid-xl text-brand">9</dd>
+        </div>
+        <div>
+          <dt class="text-fluid-xs uppercase tracking-wider text-subtle">Supported exchanges</dt>
+          <dd class="mt-1 font-mono text-fluid-xl text-brand">100+</dd>
+        </div>
+        <div>
+          <dt class="text-fluid-xs uppercase tracking-wider text-subtle">Signal to Telegram</dt>
+          <dd class="mt-1 font-mono text-fluid-xl text-brand">&lt; 5s</dd>
+        </div>
+      </dl>
+    </div>
+
+    <div class="md:col-span-5 reveal">
+      {/* Product screenshot slot — replaces the legacy signal terminal. */}
+      <div class="relative">
+        <ImageSlot
+          w={960}
+          h={640}
+          ratio="16 / 11"
+          label="Glitch Trade — 9-model ensemble signal card"
+          alt="Glitch Trade Telegram signal card showing ensemble confidence across nine models"
+          class="shadow-glow-brand"
+        />
+        <div class="absolute -bottom-6 -left-6 hidden sm:block">
+          <Mascot size={72} priority alt="Glitch cobra mascot" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

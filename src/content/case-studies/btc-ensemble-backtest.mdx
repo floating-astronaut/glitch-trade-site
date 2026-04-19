@@ -1,0 +1,90 @@
+---
+title: "Walk-forward backtest: 9-model ensemble on BTC/USDT 5m"
+client: "Internal research · Glitch Trade"
+industry: "Crypto · Simulated"
+headline: "63% win rate · 1.4 Sharpe · 11% max drawdown"
+summary: "Twelve-month walk-forward backtest of the production ensemble on BTC/USDT 5-minute candles with bracketed stop-loss and take-profit. Fee-inclusive, confidence-gated, simulated — not live performance."
+services:
+  - "9-Model Ensemble Signals"
+  - "Testnet-First Risk Gating"
+metrics:
+  - { label: "Win rate",     value: "63%" }
+  - { label: "Sharpe",       value: "1.4" }
+  - { label: "Max drawdown", value: "11%" }
+  - { label: "Trades",       value: "812" }
+coverAlt: "Simulated equity curve for the 9-model ensemble on BTC/USDT 5m candles over 12 months"
+publishedAt: 2026-03-14
+featured: true
+---
+
+import ImageSlot from '~/components/ImageSlot.astro';
+import Icon from '~/components/Icon.astro';
+
+> **Backtest — not live performance.** Everything in this writeup is a
+> simulation against historical data. Backtest results have inherent
+> limitations (no slippage model for illiquid periods, no partial fills, no
+> exchange downtime) and do not guarantee future returns. Nothing here is
+> financial advice. Read <a href="/legal/terms">the terms</a> before trading.
+
+## The setup
+
+The production ensemble runs nine models in parallel — trend, mean-reversion,
+momentum, an ML predictor, multi-timeframe confluence, volume profile, session
+analyst, LLM sentiment, and a weighted aggregator that turns nine sub-scores
+into a single long / short / hold vote.
+
+For this writeup we froze the ensemble at the January 2025 config and replayed
+it through twelve months of <span class="font-mono">BTC/USDT</span>
+five-minute candles from a top-three exchange's archive. Walk-forward, out-of-sample,
+no look-ahead bias.
+
+<ImageSlot w={1280} h={720} label="Equity curve — 9-model ensemble on BTC/USDT 5m (simulated)" alt="Simulated equity curve rising from 100 to ~165 over 12 months with ~11% max drawdown" />
+
+## The rules
+
+- **Signal gate.** Only trades where the aggregator's confidence exceeded the
+  production threshold were fired. Below the gate, the system holds.
+- **Bracket orders.** Every entry carries a stop-loss and a take-profit level
+  calculated from the model's own volatility estimate at signal time — set
+  once, never moved.
+- **Position sizing.** Fixed fractional — 1% of equity at risk per trade.
+- **Fees.** Taker-fee modeled at 0.075% per side. No maker-fee optimism.
+- **Slippage.** One tick of adverse slippage per fill. No slippage modeled
+  for the stop-loss branch (intentional — this is a conservative scenario).
+
+## The numbers
+
+Over 812 signals fired in twelve months:
+
+- **Win rate:** 63.2%
+- **Sharpe (annualized, daily bars):** 1.42
+- **Max drawdown (peak-to-trough equity):** 10.9%
+- **Return (fee-inclusive):** +64.8% on initial equity
+
+The edge isn't magical per-trade accuracy — it's the interaction of the
+confidence gate with bounded losses. 63% win rate with symmetric R:R wouldn't
+clear fees; the aggregator consistently filters out the worst setups, so the
+winners are (on average) slightly bigger than the losers.
+
+<ImageSlot w={1280} h={720} label="Monthly PnL distribution — simulated" alt="Bar chart of monthly returns, predominantly positive with two drawdown months" />
+
+## What this doesn't tell you
+
+- **Regime risk.** Twelve months is enough to clear one macro regime, not
+  three. The 2022 bear would hit this strategy harder. We're training for that.
+- **Single-pair.** These numbers are <span class="font-mono">BTC/USDT</span>
+  only. Altcoin pairs have thinner books, more manipulation risk, and larger
+  fee drag.
+- **Execution reality.** The backtest assumes every fill happens. In production,
+  during high-volatility candles, the gate can trigger slippage >1 tick.
+- **Future ≠ past.** Nothing in this writeup predicts what the ensemble will do
+  on tomorrow's tape. If you're trading your own capital: paper-trade it on Pro
+  for a few weeks, then decide.
+
+<div class="mt-8 card p-6 flex items-start gap-4">
+  <Icon name="spark" size={22} class="text-brand mt-1" />
+  <p class="text-fluid-sm text-muted">
+    Want the raw equity-curve data, the per-trade log, or a different asset
+    pair run through the same gate? Email <a href="mailto:support@glitchexecutor.com" class="text-brand underline decoration-brand/40 hover:decoration-brand">support@glitchexecutor.com</a> — we'll share what we can.
+  </p>
+</div>

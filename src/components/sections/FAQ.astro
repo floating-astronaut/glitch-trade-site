@@ -1,0 +1,73 @@
+---
+import Icon from '~/components/Icon.astro';
+
+// Native <details>/<summary> = zero JS, fully accessible, works without
+// hydration. The chevron rotates via CSS on the open state.
+const faqs = [
+  {
+    q: 'Is this financial advice?',
+    a: 'No. Glitch Trade is a software tool. Ensemble outputs, backtests, and anything the bot says are information — not a recommendation, solicitation, or advice to buy, sell, or hold any asset. Every trading decision is yours. We don\'t know your tax situation, risk tolerance, or local regulations, and we can\'t act as your advisor. Trading crypto involves substantial risk including total loss of capital.',
+  },
+  {
+    q: 'Do I need my own exchange account?',
+    a: 'Yes. Glitch Trade connects to your exchange via a trade-only API key — we never custody your funds. That means you keep full control of your capital, and the worst we can do on your behalf is place or cancel orders. Withdrawals are never enabled. Works with any CCXT-supported venue: Binance, OKX, Bybit, KuCoin, Coinbase Advanced, Bitget, MEXC, Gate.io, Kraken, and 90+ more.',
+  },
+  {
+    q: 'How are signals delivered?',
+    a: 'Telegram, in under five seconds from the candle close that triggered them. You\'ll get the ticker, direction (long / short / hold), the ensemble confidence score, and each of the nine sub-scores. On Pro and Elite, the corresponding order fires automatically and you get a fill confirmation — also in Telegram — within a second or two of execution.',
+  },
+  {
+    q: 'What assets are covered?',
+    a: 'Today: crypto spot pairs (BTC, ETH, SOL, XRP on the Starter tier; any CCXT-listed pair on Pro and Elite). Forex and commodity support is on the roadmap — if that\'s what you need, email support@glitchexecutor.com and we\'ll tell you where it is.',
+  },
+  {
+    q: 'What\'s the minimum capital to run this?',
+    a: 'There\'s no minimum set by us — but exchange minimum order sizes and your own risk management should drive the answer. Position sizing is configured per-trade and capped to whatever value you set. A common approach among our users is to paper-trade on Pro for a few weeks before committing capital on Elite. If you\'re not sure what size makes sense for your situation, that\'s a question for a licensed advisor, not our support inbox.',
+  },
+  {
+    q: 'What happens when the ensemble is wrong?',
+    a: 'Every trade ships with automatic stop-loss and take-profit levels — the risk per signal is bounded before the trade fires. The aggregator only triggers above a minimum confidence threshold, so low-conviction setups are suppressed rather than traded. No model (and no trader) is right every time; the ensemble\'s edge comes from aggregating nine views and sizing losses small. Past ensemble performance in any period does not guarantee future results.',
+  },
+];
+---
+
+<section id="faq" class="py-24 md:py-32 border-t border-border/40">
+  <div class="container-app grid md:grid-cols-12 gap-10">
+    <div class="md:col-span-4 reveal">
+      <p class="eyebrow"><Icon name="spark" size={14} /> FAQ</p>
+      <h2 class="mt-4">The questions every trader asks before they connect a key.</h2>
+      <p class="mt-5 text-fluid-base text-muted">
+        Answered up front so you can decide with evidence, not a support ticket.
+      </p>
+    </div>
+
+    <div class="md:col-span-8">
+      <ul class="divide-y divide-border/60 border-y border-border/60" role="list">
+        {faqs.map((f) => (
+          <li>
+            <details class="group">
+              <summary
+                class="flex items-start justify-between gap-4 py-5 cursor-pointer list-none
+                       focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand rounded-md"
+              >
+                <span class="text-fluid-base font-medium pr-2">{f.q}</span>
+                <span
+                  aria-hidden="true"
+                  class="shrink-0 mt-1 size-6 inline-flex items-center justify-center rounded-full border border-border text-subtle
+                         transition-transform duration-200 group-open:rotate-45 group-open:text-brand group-open:border-brand/50"
+                >
+                  <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true">
+                    <path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                  </svg>
+                </span>
+              </summary>
+              <div class="pb-5 pr-8 text-fluid-sm text-muted leading-relaxed">
+                {f.a}
+              </div>
+            </details>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</section>

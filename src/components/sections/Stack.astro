@@ -1,0 +1,43 @@
+---
+import Icon from '~/components/Icon.astro';
+
+// Only surface integrations that the legacy site already referenced publicly.
+// Internal model orchestration (LangGraph, pgvector, Redis, Postgres) is listed
+// at a category level — no deployment specifics.
+const stack = [
+  { icon: 'cpu' as const,      name: '9-model ML ensemble',        note: 'Weighted aggregator, confidence-gated' },
+  { icon: 'send' as const,     name: 'Telegram Bot API',           note: 'Signals, confirms, commands' },
+  { icon: 'link' as const,     name: 'CCXT (100+ exchanges)',      note: 'Trade-only API keys, AES-256' },
+  { icon: 'bolt' as const,     name: 'LLM sentiment layer',        note: 'News + social + Fear &amp; Greed' },
+  { icon: 'database' as const, name: 'Vector memory',              note: 'Pattern recall across regimes' },
+  { icon: 'chart' as const,    name: 'Walk-forward backtesting',   note: 'Fee-inclusive, out-of-sample' },
+  { icon: 'shield' as const,   name: 'Testnet-first execution',    note: 'Pro tier paper-trades by default' },
+  { icon: 'layers' as const,   name: 'Cloudflare edge',            note: 'Pages, Workers, Turnstile' },
+];
+---
+
+<section id="stack" class="py-24 md:py-32">
+  <div class="container-app">
+    <div class="max-w-2xl reveal">
+      <p class="eyebrow"><Icon name="code" size={14} /> Under the hood</p>
+      <h2 class="mt-4">An execution stack built for traders, not demos.</h2>
+      <p class="mt-5 text-fluid-lg text-muted">
+        Your keys stay trade-only. Your funds stay on your exchange. The ensemble,
+        the sentiment layer, and the risk gate all run on infrastructure we own —
+        no black-box SaaS moat sitting between you and the market.
+      </p>
+    </div>
+
+    <ul class="mt-12 grid grid-cols-2 md:grid-cols-4 gap-3" role="list">
+      {stack.map((s) => (
+        <li class="card px-4 py-4 flex items-center gap-3 reveal">
+          <span class="text-brand"><Icon name={s.icon} size={22} /></span>
+          <span class="flex-1 min-w-0">
+            <span class="block text-fluid-sm font-medium truncate">{s.name}</span>
+            <span class="block text-fluid-xs text-subtle" set:html={s.note}></span>
+          </span>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>

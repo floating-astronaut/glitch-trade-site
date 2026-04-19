@@ -1,0 +1,87 @@
+---
+import Icon from '~/components/Icon.astro';
+
+// Service set adapted from legacy "How It Works" + "Key Features" blocks.
+// Each block describes a capability the legacy site already advertised.
+const services = [
+  {
+    icon: 'cpu' as const,
+    title: '9-Model Ensemble Signals',
+    blurb:
+      'Nine specialized models analyze every ticker in parallel — trend, mean-reversion, momentum, ML, multi-TF, volume, session, sentiment — then a weighted aggregator turns nine votes into one LONG / SHORT / HOLD call.',
+    bullets: [
+      'Confidence thresholds suppress low-conviction noise',
+      'Multi-timeframe confluence (1m, 5m, 1h, 4h)',
+      'LLM-driven sentiment from news + social + Fear &amp; Greed',
+    ],
+  },
+  {
+    icon: 'send' as const,
+    title: 'Telegram-Native Delivery',
+    blurb:
+      'Signals, confirmations, commands — all in Telegram. Type a ticker, get a consensus read. No apps to install, no dashboards to check.',
+    bullets: [
+      'Sub-5-second latency from candle close to notification',
+      'Pause, resume, or reconfigure with one command',
+      'Per-trade Telegram confirmation with every fill',
+    ],
+  },
+  {
+    icon: 'link' as const,
+    title: 'Auto-Execute on 100+ Exchanges',
+    blurb:
+      'Connect any exchange supported by CCXT — Binance, OKX, Bybit, KuCoin, Coinbase Advanced, Bitget, MEXC, Gate.io, Kraken, Bitfinex. On Pro and Elite, the ensemble fires the order for you.',
+    bullets: [
+      'Trade-only API keys — withdrawals always disabled',
+      'Keys encrypted with AES-256, never stored in plain text',
+      'Auto stop-loss &amp; take-profit on every executed trade',
+    ],
+  },
+  {
+    icon: 'shield' as const,
+    title: 'Testnet-First Risk Gating',
+    blurb:
+      'Pro tier auto-executes against Binance testnet so you validate the strategy with zero real-money exposure. Upgrade to Elite only when you\'ve seen the behavior and decided to go live.',
+    bullets: [
+      'Paper-trade the identical logic before live deploy',
+      'Position sizing capped to what you configure',
+      'Pause the bot in one Telegram message — any time',
+    ],
+  },
+];
+---
+
+<section id="services" class="py-24 md:py-32">
+  <div class="container-app">
+    <div class="max-w-2xl reveal">
+      <p class="eyebrow"><Icon name="layers" size={14} /> What runs under the hood</p>
+      <h2 class="mt-4">One ensemble. Four capabilities that matter.</h2>
+      <p class="mt-5 text-fluid-lg text-muted">
+        Signal generation, delivery, execution, and risk gating are all one system —
+        so the signal you see in Telegram is the exact logic the bot will trade on.
+      </p>
+    </div>
+
+    <ul class="mt-14 grid gap-5 md:grid-cols-2" role="list">
+      {services.map((s) => (
+        <li class="card p-6 md:p-8 reveal group">
+          <div class="flex items-center gap-3">
+            <span class="inline-flex size-10 items-center justify-center rounded-md bg-brand/10 text-brand border border-brand/20">
+              <Icon name={s.icon} size={20} />
+            </span>
+            <h3 class="text-fluid-xl">{s.title}</h3>
+          </div>
+          <p class="mt-4 text-muted text-fluid-sm" set:html={s.blurb}></p>
+          <ul class="mt-5 space-y-2 text-fluid-sm" role="list">
+            {s.bullets.map((b) => (
+              <li class="flex items-start gap-2">
+                <span class="mt-[3px] text-brand"><Icon name="check" size={14} /></span>
+                <span class="text-fg/90" set:html={b}></span>
+              </li>
+            ))}
+          </ul>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>

@@ -1,0 +1,56 @@
+---
+import { legalNav, site } from '~/lib/site';
+import Icon from './Icon.astro';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="mt-32 border-t border-border/60 bg-bg">
+  <div class="container-app py-16 grid gap-10 md:grid-cols-4">
+    <div class="md:col-span-2">
+      <div class="flex items-center gap-2.5 mb-4">
+        <img src="/assets/brand/mascot-256.png" alt="" width="32" height="32" class="w-8 h-8 rounded-md" loading="lazy" />
+        <span class="font-semibold">Glitch <span class="text-brand">Trade</span></span>
+      </div>
+      <p class="text-muted max-w-prose-tight text-fluid-sm">
+        {site.description}
+      </p>
+      <p class="text-subtle text-fluid-xs mt-4">
+        A <a href="https://glitchexecutor.com" class="underline decoration-border hover:decoration-brand">{site.parent}</a> product.
+      </p>
+      <p class="text-subtle text-fluid-xs mt-3 max-w-prose-tight">
+        Trading involves risk. AI signals are information, not financial advice.
+      </p>
+    </div>
+
+    <nav aria-label="Footer primary" class="text-fluid-sm">
+      <h3 class="eyebrow mb-4">Product</h3>
+      <ul class="space-y-2 text-muted">
+        <li><a class="hover:text-fg" href="/#services">Signals</a></li>
+        <li><a class="hover:text-fg" href="/case-studies">Case studies</a></li>
+        <li><a class="hover:text-fg" href="/#stack">Tech stack</a></li>
+        <li><a class="hover:text-fg" href="/#contact">Start trial</a></li>
+      </ul>
+    </nav>
+
+    <nav aria-label="Footer legal" class="text-fluid-sm">
+      <h3 class="eyebrow mb-4">Legal</h3>
+      <ul class="space-y-2 text-muted">
+        {legalNav.map((l) => (
+          <li><a class="hover:text-fg" href={l.href}>{l.label}</a></li>
+        ))}
+        <li>
+          <a class="hover:text-fg inline-flex items-center gap-1" href={`mailto:${site.contactEmail}`}>
+            {site.contactEmail}
+            <Icon name="arrow-up-right" size={14} />
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="container-app flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pb-10 text-fluid-xs text-subtle">
+    <p>© {year} {site.parent}. All rights reserved.</p>
+    <p class="font-mono">Built on Astro · Deployed on Cloudflare</p>
+  </div>
+</footer>

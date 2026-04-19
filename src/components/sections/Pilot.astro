@@ -1,0 +1,70 @@
+---
+import Icon from '~/components/Icon.astro';
+
+// Trial structure lifted from the legacy "How It Works" flow: connect,
+// analyze, execute. Kept the three-step rhythm so the template parallel holds.
+const steps = [
+  {
+    week: 'Day 0',
+    title: 'Open the Telegram bot',
+    body:
+      'No credit card. No app install. Tap the Telegram link, enter your name and email, and you\'re inside the bot. Seven days of full access starts the moment you hit send.',
+  },
+  {
+    week: 'Day 1–6',
+    title: 'Connect &amp; analyse',
+    body:
+      'Send /connect_exchange, paste a trade-only API key, and type any crypto ticker — BTC, ETH, SOL, XRP. All nine models analyse it simultaneously and return a consensus signal within seconds. On Pro, it auto-executes to testnet.',
+  },
+  {
+    week: 'Day 7',
+    title: 'Choose a plan or walk away',
+    body:
+      'At the end of the trial the bot sends a payment link. Pick Starter, Pro, or Elite — or don\'t. There\'s no auto-charge, no cancellation form, no dark pattern. You keep whatever signals, learnings, and API keys you came in with.',
+  },
+];
+---
+
+<section id="pilot" class="py-24 md:py-32 relative">
+  <div aria-hidden="true" class="pointer-events-none absolute inset-0 -z-10">
+    <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[26rem] w-[50rem] max-w-[90vw] rounded-full
+                bg-[radial-gradient(circle_at_center,rgb(var(--color-brand)/0.10),transparent_60%)] blur-2xl"></div>
+  </div>
+
+  <div class="container-app">
+    <div class="max-w-2xl reveal">
+      <p class="eyebrow"><Icon name="shield" size={14} /> 7-day free trial · no card needed</p>
+      <h2 class="mt-4">See the ensemble work — before you spend a dollar.</h2>
+      <p class="mt-5 text-fluid-lg text-muted">
+        No "book a demo", no sales call, no credit card up front. Seven days
+        of full bot access so you can decide with evidence — not a pitch deck.
+      </p>
+    </div>
+
+    <ol class="mt-14 grid gap-5 md:grid-cols-3" role="list">
+      {steps.map((s, i) => (
+        <li class="card p-6 md:p-7 reveal relative">
+          <span class="absolute -top-3 left-6 font-mono text-fluid-xs uppercase tracking-wider
+                       bg-bg px-2 py-0.5 border border-border text-brand rounded-full">
+            {s.week}
+          </span>
+          <div class="flex items-center gap-3 mt-3">
+            <span class="font-mono text-fluid-xs text-subtle">0{i + 1}</span>
+            <h3 class="text-fluid-xl">{s.title}</h3>
+          </div>
+          <p class="mt-4 text-fluid-sm text-muted leading-relaxed" set:html={s.body}></p>
+        </li>
+      ))}
+    </ol>
+
+    <div class="mt-10 flex flex-wrap items-center gap-3 reveal">
+      <a href="#contact" class="btn btn-primary">
+        Start free trial
+        <Icon name="arrow-right" size={16} />
+      </a>
+      <p class="text-fluid-xs text-subtle">
+        Cancel anytime via Telegram. Your funds never leave your exchange — we only hold trade-only API keys.
+      </p>
+    </div>
+  </div>
+</section>
