@@ -10,43 +10,148 @@ const updated = '2026-04-19';
     <h1 class="mt-4">Privacy Policy</h1>
     <p class="mt-4 text-subtle text-fluid-sm">Last updated: {updated}</p>
 
-    <div class="prose mt-10 text-muted [&_h2]:text-fg [&_h2]:mt-10 [&_h2]:mb-3 [&_h2]:text-fluid-xl [&_p]:my-3 [&_strong]:text-fg [&_ul]:list-disc [&_ul]:pl-6 [&_li]:my-1.5 [&_a]:text-brand">
+    <div class="prose mt-10 text-muted [&_h2]:text-fg [&_h2]:mt-10 [&_h2]:mb-3 [&_h2]:text-fluid-xl [&_h3]:text-fg [&_h3]:mt-6 [&_h3]:mb-2 [&_h3]:text-fluid-base [&_p]:my-3 [&_strong]:text-fg [&_ul]:list-disc [&_ul]:pl-6 [&_li]:my-1.5 [&_a]:text-brand">
       <p>
-        Glitch Trade is a product of {site.parent}. This policy covers data
-        collected through {site.domain}, the Telegram bot, and the services we
-        operate under signed subscription.
+        Glitch Trade is a product of {site.parent} ("we", "us", "our"). This
+        policy covers data collected through {site.domain}, the Telegram
+        bot, and the services we operate under paid subscription.
       </p>
 
-      <h2>What we collect</h2>
+      <h2>1. Data controller &amp; contact</h2>
+      <p>
+        {site.parent} is the data controller for the personal data
+        described below. For any data-related request — access, copy,
+        correction, deletion, portability, restriction, or objection —
+        contact <a href={`mailto:${site.contactEmail}`}>{site.contactEmail}</a>.
+        We acknowledge requests within 7 days and respond substantively
+        within 30 days (or the period required by your applicable law).
+      </p>
+
+      <h2>2. What we collect</h2>
       <ul>
         <li><strong>Contact &amp; trial form submissions</strong> — name, email, phone (when provided), and the message you send us. Stored in encrypted Postgres.</li>
         <li><strong>Telegram identifiers</strong> — your Telegram user ID and the commands you send the bot, for signal delivery and billing.</li>
         <li><strong>Exchange API keys</strong> — encrypted with AES-256, trade-only scope (no withdrawal permissions). You can revoke at any time from the bot or your exchange.</li>
-        <li><strong>Aggregate analytics</strong> — page views, referrers, device type. No cookies, no fingerprinting, no IP-to-user resolution.</li>
+        <li><strong>Billing data</strong> — handled by Stripe (see §6 Sub-processors). We receive only customer ID, email, amount, last-4 of card, and plan. We never see full card numbers.</li>
+        <li><strong>Aggregate analytics</strong> — page views, referrers, device type. No cookies, no cross-site tracking, no fingerprinting, no IP-to-user resolution.</li>
         <li><strong>Turnstile challenge data</strong> — processed by Cloudflare under their privacy terms. We receive only pass/fail.</li>
+        <li><strong>Server logs</strong> — IP address, request timestamp, and path, retained for up to 30 days for security and abuse prevention.</li>
       </ul>
 
-      <h2>What we don't do</h2>
-      <ul>
-        <li>No cross-site tracking.</li>
-        <li>No selling of data to third parties.</li>
-        <li>No advertising cookies.</li>
-        <li>No enrichment of your form submission against third-party databases.</li>
-      </ul>
-
-      <h2>How to reach us</h2>
+      <h2>3. Legal basis for processing</h2>
       <p>
-        For data access, correction, or deletion requests, email
-        <a href={`mailto:${site.contactEmail}`}>{site.contactEmail}</a>.
-        We respond within 30 days.
+        Depending on which privacy regime applies to you, we rely on one
+        or more of the following legal bases:
+      </p>
+      <ul>
+        <li><strong>Contract performance</strong> — to deliver signals, process subscriptions, and operate the bot you signed up for (EU/UK GDPR Art. 6(1)(b); DIFC DPL §10(1)(b); ADGM DPR §5(1)(b); UAE PDPL Art. 5(1)(c); India DPDPA §7(a)).</li>
+        <li><strong>Legitimate interests</strong> — to secure the Service against abuse, debug errors, and improve product quality (GDPR Art. 6(1)(f); equivalent provisions elsewhere).</li>
+        <li><strong>Legal obligation</strong> — to comply with applicable tax, accounting, and sanctions-screening laws.</li>
+        <li><strong>Consent</strong> — for any optional communications such as marketing newsletters, which you can withdraw at any time without affecting the lawfulness of prior processing.</li>
+      </ul>
+
+      <h2>4. What we don't do</h2>
+      <ul>
+        <li>No cross-site tracking, advertising cookies, or third-party ad-tech pixels on the marketing site.</li>
+        <li>No selling or licensing of personal data to third parties.</li>
+        <li>No enrichment of your form submission against third-party data brokers or lookup services.</li>
+        <li>No profiling or automated decision-making that produces legal effects on you.</li>
+        <li>No data collection from anyone we know to be under 18 years of age. If you believe a minor has submitted personal data, contact us and we will delete it.</li>
+      </ul>
+
+      <h2>5. Data retention</h2>
+      <p>
+        We retain personal data only as long as necessary for the purposes
+        set out in this policy:
+      </p>
+      <ul>
+        <li><strong>Account &amp; bot telemetry</strong> — for the life of your subscription plus 24 months (to support dispute resolution and tax records), then deleted or anonymised.</li>
+        <li><strong>Contact-form submissions</strong> — 24 months, or sooner on your deletion request.</li>
+        <li><strong>Server logs</strong> — up to 30 days.</li>
+        <li><strong>Billing records</strong> — retained as long as required by applicable tax, accounting, and anti-money-laundering laws (typically 5–7 years).</li>
+      </ul>
+
+      <h2>6. Sub-processors</h2>
+      <p>
+        We rely on the following third-party processors. Each is bound by
+        a data-processing agreement and their own published privacy terms:
+      </p>
+      <ul>
+        <li><strong>Cloudflare, Inc.</strong> — site delivery, WAF, Turnstile bot mitigation, Pages hosting.</li>
+        <li><strong>Stripe, Inc.</strong> — subscription billing, checkout, payment card processing.</li>
+        <li><strong>Telegram Messenger Inc.</strong> — bot message delivery. Your Telegram messages to the bot are processed under Telegram's own privacy terms before reaching our servers.</li>
+        <li><strong>Postgres-compatible hosting</strong> — encrypted at rest, located in [TBD hosting region]. Backups encrypted and retained per §5.</li>
+        <li><strong>Your exchange</strong> — via API keys you provide. Trade-only scope; see Terms §6.</li>
+      </ul>
+
+      <h2>7. International transfers</h2>
+      <p>
+        Some of the sub-processors listed above (notably Cloudflare,
+        Stripe, and Telegram) operate globally and may transfer personal
+        data across borders. Where required, transfers rely on mechanisms
+        such as the EU Commission's Standard Contractual Clauses, the UK
+        International Data Transfer Addendum, adequacy decisions, or
+        equivalent safeguards under the UAE PDPL (Art. 22 cross-border
+        transfer provisions) and India DPDPA 2023 (§16 notified-country
+        framework).
       </p>
 
-      <h2>Subscription accounts</h2>
+      <h2>8. Security</h2>
       <p>
-        When you activate a paid tier, Stripe processes your payment under
-        their own privacy terms — we receive only the fields Stripe returns
-        to a merchant (customer ID, email, amount, last-4 of card, plan). We
-        do not store full card numbers.
+        We apply administrative, technical, and physical safeguards that
+        are reasonable for a service of this scale: AES-256 at-rest
+        encryption for API keys, TLS 1.2+ in transit, least-privilege
+        access for staff, audit logging on sensitive tables, and
+        periodic credential rotation. No system is perfectly secure — if
+        you believe your credentials have been compromised, contact us
+        immediately at
+        <a href={`mailto:${site.contactEmail}`}>{site.contactEmail}</a>.
+      </p>
+
+      <h2>9. Data-subject rights</h2>
+      <p>
+        Depending on where you live, you may have some or all of the
+        following rights regarding your personal data:
+      </p>
+      <ul>
+        <li><strong>Access</strong> — obtain a copy of the personal data we hold about you.</li>
+        <li><strong>Rectification</strong> — correct inaccurate or incomplete data.</li>
+        <li><strong>Erasure</strong> — request deletion, subject to legal retention obligations.</li>
+        <li><strong>Restriction</strong> — limit how we process your data pending resolution of a dispute.</li>
+        <li><strong>Portability</strong> — receive a machine-readable copy of data you provided, where technically feasible.</li>
+        <li><strong>Objection</strong> — object to processing based on our legitimate interests.</li>
+        <li><strong>Withdraw consent</strong> — at any time, for any processing based on consent.</li>
+        <li><strong>Complain to a regulator</strong> — your local data-protection authority (e.g. UK ICO, EU DPA, UAE Data Office, India Data Protection Board, California AG).</li>
+      </ul>
+      <p>
+        Submit requests to
+        <a href={`mailto:${site.contactEmail}`}>{site.contactEmail}</a>.
+        We verify identity before actioning requests to protect your data
+        from unauthorised access.
+      </p>
+
+      <h2>10. Data breach notification</h2>
+      <p>
+        In the event of a personal-data breach that is likely to result in
+        a risk to your rights and freedoms, we will notify the relevant
+        supervisory authority without undue delay (and within 72 hours
+        where required by GDPR Art. 33 or equivalent provisions) and will
+        inform affected users directly where the breach is likely to
+        result in a high risk to them.
+      </p>
+
+      <h2>11. Changes to this policy</h2>
+      <p>
+        We may update this Privacy Policy from time to time. If we make
+        material changes we will post the revised version on this page and
+        update the "Last updated" date. For changes that materially
+        expand how we use personal data, we will provide advance notice.
+      </p>
+
+      <h2>12. Contact</h2>
+      <p>
+        Data Protection contact:
+        <a href={`mailto:${site.contactEmail}`}>{site.contactEmail}</a>.
       </p>
     </div>
   </section>
