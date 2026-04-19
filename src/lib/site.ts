@@ -3,21 +3,37 @@
 
 export const site = {
   name: 'Glitch Trade',
-  parent: 'Glitch Executor',
+  parent: 'Glitch Executor Labs',
   domain: 'trade.glitchexecutor.com',
   url: 'https://trade.glitchexecutor.com',
   contactEmail: 'support@glitchexecutor.com',
-  tagline: '9 AI models. One trading edge.',
+  tagline: '9 AI models. Your trading stack.',
   description:
-    '9-model AI ensemble analyzing crypto markets 24/7. Signals delivered via Telegram. Auto-execute on 100+ supported exchanges. Start your free trial today.',
+    'A 9-model AI ensemble licensed to trading operators — plug it into your own infrastructure, run analysis, simulation, and paper-first execution across crypto and derivatives. You keep every execution decision.',
   ogImage: '/assets/brand/og-image.png',
   twitter: '@glitchexecutor',
   locale: 'en-US',
 } as const;
 
+// Legal entity (contracts, notices, disputes bind here — not the product brand).
+// Nuraveda is a sole proprietorship; no corporate veil. Update if/when the
+// entity type or address changes.
+export const legalEntity = {
+  name: 'Nuraveda',
+  type: 'Sole proprietorship',
+  owner: 'Tejas Karan Agrawal',
+  address: '77 Huntley St, Toronto, ON M4Y 2P3, Canada',
+  phone: '+1 437 539 7958',
+  email: 'support@glitchexecutor.com',
+  jurisdiction: 'Province of Ontario, Canada',
+  arbitrationSeat: 'Toronto, Ontario',
+  arbitrationRules: 'ADR Institute of Canada, Inc.',
+  dataStorageRegion: 'Iowa, United States',
+} as const;
+
 export const nav = [
   { href: '/#outcomes',    label: 'Results' },
-  { href: '/#services',    label: 'Signals' },
+  { href: '/#services',    label: 'Services' },
   { href: '/#pilot',       label: 'Trial' },
   { href: '/case-studies', label: 'Case Studies' },
   { href: '/#faq',         label: 'FAQ' },

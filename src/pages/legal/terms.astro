@@ -1,6 +1,6 @@
 ---
 import Base from '~/layouts/Base.astro';
-import { site } from '~/lib/site';
+import { site, legalEntity } from '~/lib/site';
 const updated = '2026-04-19';
 ---
 
@@ -12,69 +12,62 @@ const updated = '2026-04-19';
 
     <div class="prose mt-10 text-muted [&_h2]:text-fg [&_h2]:mt-10 [&_h2]:mb-3 [&_h2]:text-fluid-xl [&_h3]:text-fg [&_h3]:mt-6 [&_h3]:mb-2 [&_h3]:text-fluid-base [&_p]:my-3 [&_strong]:text-fg [&_ul]:list-disc [&_ul]:pl-6 [&_li]:my-1.5 [&_a]:text-brand">
       <p>
-        By accessing {site.domain}, creating an account, or using the Glitch
-        Trade bot or any related software, API, or data feed (collectively,
-        the "Service") you agree to these Terms of Use. The Service is
-        operated by {site.parent} ("we", "us", "our"). Nothing on this site
-        or in the bot constitutes a binding offer, a recommendation, or
-        professional advice — it is marketing content and software tooling.
+        {site.name} ("<strong>the Service</strong>") is an AI software tool
+        operated by <strong>{legalEntity.name}</strong>, a
+        {legalEntity.type.toLowerCase()} owned by {legalEntity.owner} with a
+        principal place of business at {legalEntity.address}
+        ("<strong>we</strong>", "<strong>us</strong>", "<strong>our</strong>").
+        By accessing {site.domain}, creating an account, or using the Service,
+        you ("<strong>you</strong>") agree to these Terms of Use.
       </p>
 
-      <h2>1. Educational &amp; informational use only</h2>
+      <h2>1. Nature of the Service: software tools, not advice</h2>
       <p>
-        The Service is intended for informational and educational use. All
-        signals, model outputs, analyses, dashboards, screenshots, and
-        commentary are provided <strong>for general information only</strong>
-        and must not be interpreted as a personal recommendation or an
-        invitation to transact in any security, commodity, or digital asset.
-        If you need advice tailored to your situation, consult a licensed
-        professional in your jurisdiction.
-      </p>
-
-      <h2>2. No investment advice; no registered status</h2>
-      <p>
-        <strong>Glitch Trade does not provide investment, financial, legal,
-        or tax advice.</strong> We are not:
+        The Service provides <strong>AI software tools</strong> — models,
+        dashboards, simulations, analytics, and APIs — that you can use as
+        inputs to your own trading decisions. <strong>The Service does not
+        make trading decisions for you, does not execute trades on your
+        behalf, and does not tell you what to trade.</strong> You are solely
+        responsible for:
       </p>
       <ul>
-        <li>A registered broker-dealer, investment adviser, or FINRA/SEC-licensed entity in the United States;</li>
-        <li>A SEBI-registered Investment Adviser (IA) or Research Analyst (RA) in India under the SEBI (Investment Advisers) Regulations 2013 or SEBI (Research Analysts) Regulations 2014;</li>
-        <li>Licensed by the UAE Securities and Commodities Authority (SCA), the Dubai Virtual Assets Regulatory Authority (VARA), the DFSA, or the ADGM Financial Services Regulatory Authority (FSRA);</li>
-        <li>Authorised by the UK Financial Conduct Authority (FCA), nor registered with any EU national competent authority under MiCA, MiFID II, or related frameworks.</li>
+        <li>Deciding whether, when, and how to act on any output of the Service;</li>
+        <li>Configuring, connecting, and operating any exchange account you link to the tools;</li>
+        <li>Sizing positions, managing risk, paying taxes, and complying with local law;</li>
+        <li>Any profit or loss resulting from your use of the Service.</li>
+      </ul>
+
+      <h2>2. We are not an investment adviser</h2>
+      <p>
+        <strong>{legalEntity.name} does not provide investment, financial,
+        legal, or tax advice.</strong> We are not, and do not hold ourselves
+        out as:
+      </p>
+      <ul>
+        <li>A registered adviser, portfolio manager, or exempt market dealer with the Ontario Securities Commission (OSC), the Canadian Investment Regulatory Organization (CIRO), or any other Canadian provincial securities regulator;</li>
+        <li>A registered investment adviser (RIA), broker-dealer, FINRA member, or SEC-licensed entity in the United States;</li>
+        <li>A SEBI-registered Investment Adviser or Research Analyst in India;</li>
+        <li>Licensed by the UAE SCA, VARA, DFSA, or ADGM FSRA;</li>
+        <li>Authorised by the UK FCA or any EU competent authority.</li>
       </ul>
       <p>
-        Signals, model outputs, and commentary are <strong>not tailored to
-        your personal financial situation, risk tolerance, or regulatory
-        position</strong>. You are solely responsible for every trading
-        decision you make.
+        Nothing the Service produces is a recommendation tailored to your
+        personal financial situation, risk tolerance, or regulatory position.
+        If you need advice, consult a licensed professional in your
+        jurisdiction.
       </p>
 
-      <h2>3. Past performance &amp; hypothetical results</h2>
+      <h2>3. Past performance &amp; tool-capability metrics</h2>
       <p>
         <strong>Past performance does not guarantee future results.</strong>
         Any historical metrics, backtests, paper-trading runs, or simulated
-        results shown on this site or inside the bot are hypothetical. Live
-        trading outcomes will differ from simulated ones, often materially.
-      </p>
-      <h3>3.1 CFTC Rule 4.41-style disclosure</h3>
-      <p class="font-mono text-fluid-xs uppercase tracking-wide">
-        Hypothetical performance results have many inherent limitations,
-        some of which are described below. No representation is being made
-        that any account will or is likely to achieve profits or losses
-        similar to those shown. In fact, there are frequently sharp
-        differences between hypothetical performance results and the actual
-        results subsequently achieved by any particular trading program.
-        One of the limitations of hypothetical performance results is that
-        they are generally prepared with the benefit of hindsight. In
-        addition, hypothetical trading does not involve financial risk, and
-        no hypothetical trading record can completely account for the impact
-        of financial risk in actual trading — for example, the ability to
-        withstand losses or adhere to a particular trading program in spite
-        of trading losses. There are numerous other factors related to the
-        markets in general or to the implementation of any specific trading
-        program which cannot be fully accounted for in the preparation of
-        hypothetical performance results, and all of which can adversely
-        affect actual trading results.
+        results shown on this site or inside the Service describe
+        <em>tool behaviour on historical data</em> — they are not a forecast
+        of the profit or loss you will achieve using the tool. Live trading
+        outcomes will differ from simulated ones, often materially, because
+        of slippage, liquidity, partial fills, exchange downtime, funding
+        rates, your own position sizing, and adverse market conditions that
+        backtests cannot fully reproduce.
       </p>
 
       <h2>4. Trading risk</h2>
@@ -87,7 +80,7 @@ const updated = '2026-04-19';
         deposit</strong>. Do not trade with money you cannot afford to lose.
         You are responsible for understanding the fee structure, margin
         mechanics, liquidation terms, and funding rates of any exchange you
-        connect to Glitch Trade.
+        connect to the Service.
       </p>
 
       <h2>5. Eligibility &amp; jurisdictional restrictions</h2>
@@ -98,95 +91,92 @@ const updated = '2026-04-19';
       </p>
       <h3>5.2 User responsibility</h3>
       <p>
-        Cryptocurrency and automated-trading services are regulated
-        differently in every jurisdiction. You are responsible for
-        verifying that your use of the Service complies with the laws,
-        regulations, and tax rules of the country, state, province, and
-        emirate where you reside and trade. If local law restricts or
-        prohibits use of automated trading tools, signal subscriptions, or
-        the specific assets the Service covers, you must not use the
-        Service.
+        Crypto, derivatives, and automated-trading tools are regulated
+        differently in every jurisdiction. You are responsible for verifying
+        that your use of the Service complies with the laws, regulations,
+        and tax rules of the country, state, province, or emirate where you
+        reside and trade. If local law restricts or prohibits use of
+        automated trading tools, signal services, or the specific assets you
+        intend to trade, you must not use the Service.
       </p>
       <h3>5.3 Prohibited jurisdictions</h3>
       <p>
-        The Service is not offered, and must not be used, by persons who
-        are residents of, located in, or nationals of any of the following:
-      </p>
-      <ul>
-        <li>Any country or region subject to comprehensive sanctions administered or enforced by the U.S. Office of Foreign Assets Control (OFAC), the UN Security Council, the European Union, or HM Treasury, currently including (but not limited to) Cuba, Iran, North Korea, Syria, the Crimea region of Ukraine, and the so-called Donetsk and Luhansk People's Republics.</li>
-        <li>Any jurisdiction in which the distribution or receipt of investment or trading-signal services would be contrary to local law or would subject us to registration or licensing requirements within such jurisdiction.</li>
-      </ul>
-      <h3>5.4 US residents</h3>
-      <p>
-        The Service is not directed at U.S. retail investors. U.S. persons
-        who access the Service should treat all output as general
-        educational research content only and not as personalised advice.
-        Our failure to register as an investment adviser or broker-dealer
-        means we cannot, and do not, provide services that would require
-        such registration.
+        The Service is not offered, and must not be used, by persons who are
+        residents of, located in, or nationals of any country or region
+        subject to comprehensive sanctions administered or enforced by the
+        U.S. Office of Foreign Assets Control (OFAC), the Government of
+        Canada under the Special Economic Measures Act, the UN Security
+        Council, the European Union, or HM Treasury — currently including
+        (but not limited to) Cuba, Iran, North Korea, Syria, the Crimea
+        region of Ukraine, and the so-called Donetsk and Luhansk People's
+        Republics.
       </p>
 
-      <h2>6. Account, API keys &amp; custody</h2>
+      <h2>6. Accounts, API keys &amp; custody</h2>
       <h3>6.1 API keys</h3>
       <p>
-        Glitch Trade connects to your exchange via API keys that you
-        provide. We require keys with <strong>trade-only permissions (no
-        withdrawal access)</strong>. We never custody client funds, never
-        request withdrawal permissions, and never initiate on-chain
-        transfers on your behalf. API keys are encrypted at rest using
-        AES-256.
+        Where the Service connects to your exchange, it does so via API keys
+        that <em>you</em> generate and provide. We require keys with
+        <strong>trade-only permissions (no withdrawal access)</strong>. We
+        never custody client funds, never request withdrawal permissions, and
+        never initiate on-chain transfers on your behalf. API keys are
+        encrypted at rest using AES-256.
       </p>
       <h3>6.2 Account security</h3>
       <p>
-        You are responsible for maintaining the confidentiality of your
-        Telegram account, your exchange credentials, and any authentication
-        tokens issued by the Service. Notify us at
-        <a href={`mailto:${site.contactEmail}`}>{site.contactEmail}</a> if
-        you suspect unauthorised access. You remain responsible for
-        revoking API keys if you cancel the Service.
+        You are responsible for maintaining the confidentiality of any
+        credentials issued by the Service and the API keys you configure.
+        Notify us at
+        <a href={`mailto:${legalEntity.email}`}>{legalEntity.email}</a> if
+        you suspect unauthorised access. You remain responsible for revoking
+        API keys if you cancel the Service.
       </p>
       <h3>6.3 Suspension &amp; termination</h3>
       <p>
         We may suspend or terminate your access to the Service at any time
-        if we reasonably believe you have violated these Terms, applicable
-        law, or an exchange's terms of service; if you are located in a
-        prohibited jurisdiction; if your account is associated with
-        fraudulent, abusive, or manipulative activity; or for any lawful
-        operational reason on reasonable notice. You may cancel the Service
-        at any time through the bot.
+        if we reasonably believe you have violated these Terms or applicable
+        law; if you are located in a prohibited jurisdiction; if your
+        account is associated with fraudulent, abusive, or manipulative
+        activity; or for any lawful operational reason on reasonable notice.
+        You may cancel the Service at any time through your account.
       </p>
 
       <h2>7. AML / sanctions compliance</h2>
       <p>
-        You represent that you are not listed on any OFAC, UN, EU, or HM
-        Treasury sanctions list, and that funds you trade through any
+        You represent that you are not listed on any OFAC, Canadian, UN, EU,
+        or HM Treasury sanctions list, and that funds you trade through any
         exchange connected to the Service are not derived from criminal
         activity. We do not provide KYC, identity-verification, or custody
-        services; those are performed by the exchange you connect to the
-        Service under the exchange's own AML/KYC program.
+        services; those are performed by the exchange you connect under
+        that exchange's own AML/KYC program.
       </p>
 
       <h2>8. Fees &amp; subscriptions</h2>
       <p>
-        Subscription fees, trial terms, billing cycles, and plan
-        inclusions are disclosed at the point of purchase. Payments are
-        processed by Stripe under Stripe's terms and privacy policy. Fees
-        are <strong>non-refundable except where required by applicable
-        law</strong>. You may cancel at any time; cancellation stops future
-        billing but does not entitle you to a refund of the current billing
-        period unless stated otherwise in a specific offer.
+        Subscription fees, trial terms, billing cycles, and plan inclusions
+        are disclosed at the point of purchase. Payments are processed by
+        Stripe under Stripe's terms and privacy policy. Fees are
+        <strong>non-refundable except where required by applicable
+        law</strong> (including Ontario's Consumer Protection Act, 2002
+        where it applies to a transaction). You may cancel at any time;
+        cancellation stops future billing but does not entitle you to a
+        refund of the current billing period unless stated otherwise in a
+        specific offer.
       </p>
 
-      <h2>9. Intellectual property</h2>
+      <h2>9. Licence &amp; intellectual property</h2>
       <p>
-        "Glitch Executor", "Glitch Trade", the cobra mascot, and related
-        marks are property of {site.parent}. Copy, screenshots, model
-        outputs, and dashboard artwork are copyrighted and cannot be
-        reproduced commercially without written permission. You retain
-        ownership of any data you submit to the Service (e.g. your
-        exchange metadata or form input); you grant us a limited,
-        revocable, non-exclusive licence to process that data as needed to
-        operate the Service.
+        "Glitch Trade", "Glitch Executor Labs", {legalEntity.name}, the cobra
+        mascot, and related marks are property of {legalEntity.name}. Subject
+        to your compliance with these Terms and payment of applicable fees,
+        we grant you a <strong>limited, revocable, non-exclusive,
+        non-transferable</strong> licence to access and use the Service for
+        your internal business purposes. You may not resell, sublicence,
+        redistribute, reverse-engineer, or use the Service to build a
+        competing product. You retain ownership of any data you submit to
+        the Service (e.g. exchange metadata or configuration you provide);
+        you grant us a limited, revocable, non-exclusive licence to process
+        that data as needed to operate the Service.
       </p>
 
       <h2>10. Warranties &amp; disclaimers</h2>
@@ -194,10 +184,10 @@ const updated = '2026-04-19';
         The Service is provided <em>as-is</em> and <em>as-available</em>,
         without warranties of any kind, express or implied, including
         without limitation any warranty of merchantability, fitness for a
-        particular purpose, non-infringement, or uninterrupted operation.
-        We do not warrant that signals, models, or data will be
-        error-free, timely, or profitable, and we make no warranty as to
-        any specific financial outcome.
+        particular purpose, non-infringement, or uninterrupted operation. We
+        do not warrant that tool outputs, models, or data will be
+        error-free, timely, or profitable, and we make no warranty as to any
+        specific financial outcome.
       </p>
 
       <h2>11. Limitation of liability</h2>
@@ -205,52 +195,64 @@ const updated = '2026-04-19';
         To the maximum extent permitted by applicable law:
       </p>
       <ul>
-        <li>We are not liable for trading losses, missed signals, delayed execution, exchange outages, data inaccuracies, or any indirect, incidental, consequential, special, exemplary, or punitive damages;</li>
+        <li>We are not liable for trading losses, missed opportunities, delayed or unavailable tool outputs, exchange outages, data inaccuracies, or any indirect, incidental, consequential, special, exemplary, or punitive damages;</li>
         <li>Our aggregate liability for any claim arising out of or relating to these Terms or the Service is <strong>limited to the fees you paid us in the twelve (12) months immediately preceding the event giving rise to the claim</strong>;</li>
-        <li>Some jurisdictions do not allow the limitation of implied warranties or incidental / consequential damages; the above limitations may not apply to you in those jurisdictions.</li>
+        <li>Some jurisdictions do not allow the limitation of implied warranties or incidental / consequential damages; those limitations apply to the fullest extent permitted in your jurisdiction.</li>
       </ul>
 
       <h2>12. Indemnification</h2>
       <p>
-        You agree to indemnify, defend, and hold harmless {site.parent},
-        its directors, officers, employees, contractors, and affiliates
-        from and against any third-party claims, damages, losses, and
-        expenses (including reasonable legal fees) arising out of or
-        related to: (a) your use of the Service in violation of these
-        Terms or applicable law; (b) your breach of any representation or
-        warranty in these Terms; or (c) your violation of any third
-        party's rights, including any exchange's terms of service.
+        You agree to indemnify, defend, and hold harmless {legalEntity.name}
+        and its owner, employees, contractors, and affiliates from and
+        against any third-party claims, damages, losses, and expenses
+        (including reasonable legal fees) arising out of or related to:
+        (a) your use of the Service in violation of these Terms or
+        applicable law; (b) your breach of any representation or warranty in
+        these Terms; or (c) your violation of any third party's rights,
+        including any exchange's terms of service.
       </p>
 
       <h2>13. Governing law &amp; dispute resolution</h2>
-      <p class="text-subtle text-fluid-xs">
-        {/* TBD — replace with the jurisdiction of the {site.parent} legal entity. */}
-        <em>[TBD — to be completed when the {site.parent} legal entity's
-        jurisdiction is confirmed. Common choices: Delaware (US LLC), DIFC
-        or ADGM (UAE), Singapore, England &amp; Wales. Pick one, and specify
-        the arbitration seat, venue, and language.]</em>
+      <p>
+        These Terms are governed by the laws of the
+        <strong>{legalEntity.jurisdiction}</strong> and the federal laws of
+        Canada applicable therein, without regard to conflict-of-laws
+        principles. The United Nations Convention on Contracts for the
+        International Sale of Goods does not apply.
       </p>
       <p>
-        These Terms are governed by the laws of <strong>[TBD
-        jurisdiction]</strong>, without regard to conflict-of-laws
-        principles. Any dispute arising out of or in connection with these
-        Terms or the Service shall be resolved exclusively by
-        <strong>[TBD dispute-resolution forum — e.g. binding arbitration
-        under the ICC, LCIA, DIFC-LCIA, SIAC, or AAA rules, seated in [TBD
-        city], conducted in English]</strong>. Each party waives any right
-        to a jury trial. Where applicable consumer-protection law gives
-        you rights that cannot be waived, nothing in this clause overrides
-        those rights.
+        Any dispute, controversy, or claim arising out of or in connection
+        with these Terms or the Service shall be finally resolved by
+        <strong>binding arbitration</strong> administered by the
+        <strong>{legalEntity.arbitrationRules}</strong> under its Arbitration
+        Rules then in force. The seat of the arbitration shall be
+        <strong>{legalEntity.arbitrationSeat}</strong>. There shall be a
+        single arbitrator, the language of the arbitration shall be English,
+        and the arbitrator's decision shall be final and binding. Each party
+        waives any right to a jury trial and, to the maximum extent
+        permitted by law, any right to participate in a class, collective,
+        or representative proceeding. Nothing in this clause prevents either
+        party from seeking urgent injunctive or equitable relief from a
+        court of competent jurisdiction to protect intellectual property or
+        confidential information.
+      </p>
+      <p>
+        If arbitration is unavailable or unenforceable in your jurisdiction,
+        the parties submit to the exclusive jurisdiction of the courts
+        sitting in Toronto, Ontario. Nothing in these Terms overrides any
+        non-waivable consumer rights granted to you under Ontario's
+        Consumer Protection Act, 2002, Quebec's Consumer Protection Act, or
+        any other applicable mandatory consumer-protection law.
       </p>
 
       <h2>14. Changes to these Terms</h2>
       <p>
         We may update these Terms from time to time. If we make material
         changes we will post the revised version on this page and update
-        the "Last updated" date at the top. Material changes that
-        adversely affect your rights will take effect no sooner than 30
-        days after posting, and we will make reasonable efforts to notify
-        active subscribers by email or in-bot message.
+        the "Last updated" date at the top. Material changes that adversely
+        affect your rights will take effect no sooner than 30 days after
+        posting, and we will make reasonable efforts to notify active
+        subscribers by email.
       </p>
 
       <h2>15. General</h2>
@@ -261,17 +263,24 @@ const updated = '2026-04-19';
         <strong>Entire agreement:</strong> these Terms, together with our
         Privacy Policy, form the entire agreement between you and us
         regarding the Service.
-        <strong>No waiver:</strong> our failure to enforce any right is
-        not a waiver.
+        <strong>No waiver:</strong> our failure to enforce any right is not
+        a waiver.
         <strong>Assignment:</strong> you may not assign your rights under
-        these Terms; we may assign ours to an affiliate or in connection
-        with a merger, acquisition, or sale of assets.
+        these Terms; we may assign ours in connection with a sale of assets
+        or a change of business form (e.g. conversion to a corporation).
       </p>
 
       <h2>16. Contact</h2>
       <p>
-        Legal notices:
-        <a href={`mailto:${site.contactEmail}`}>{site.contactEmail}</a>.
+        Legal notices and data-protection requests should be sent to
+        <a href={`mailto:${legalEntity.email}`}>{legalEntity.email}</a> or
+        by mail to:
+      </p>
+      <p class="font-mono text-fluid-sm">
+        {legalEntity.name}<br/>
+        Attention: {legalEntity.owner}<br/>
+        {legalEntity.address}<br/>
+        Tel: {legalEntity.phone}
       </p>
     </div>
   </section>
