@@ -14,11 +14,11 @@ Marketing site for **Glitch Trade**, the AI trading domain inside **Glitch Execu
 
 ## Related repos
 
-- [glitch-trading-core](https://github.com/glitch-exec-labs/glitch-trading-core)
-- [glitch-ouroboros-snake-strategy](https://github.com/glitch-exec-labs/glitch-ouroboros-snake-strategy)
-- [glitch-indian-king-cobra](https://github.com/glitch-exec-labs/glitch-indian-king-cobra)
-- [glitch-terciopelo](https://github.com/glitch-exec-labs/glitch-terciopelo)
-- [glitch-brand-assets](https://github.com/glitch-exec-labs/glitch-brand-assets)
+- [glitch-trade-core](https://github.com/glitch-exec-labs/glitch-trade-core)
+- [glitch-trade-ouroboros-snake-strategy](https://github.com/glitch-exec-labs/glitch-trade-ouroboros-snake-strategy)
+- [glitch-trade-indian-king-cobra](https://github.com/glitch-exec-labs/glitch-trade-indian-king-cobra)
+- [glitch-trade-terciopelo](https://github.com/glitch-exec-labs/glitch-trade-terciopelo)
+- [glitch-executor-labs-brand-assets](https://github.com/glitch-exec-labs/glitch-executor-labs-brand-assets)
 
 ## Brand note
 
