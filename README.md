@@ -1,6 +1,6 @@
-# Glitch Trade Site
+# Glitch Trade Marketing Site
 
-Marketing site for **Glitch Trade**, the AI trading product line inside Glitch Executor — a 9-model ensemble that delivers crypto signals to Telegram and auto-executes on 100+ exchanges.
+Marketing site for **Glitch Trade**, the AI trading domain inside **Glitch Executor Labs** — a 9-model ensemble that delivers crypto signals to Telegram and auto-executes on 100+ exchanges.
 
 ## What it is
 
@@ -14,9 +14,10 @@ Marketing site for **Glitch Trade**, the AI trading product line inside Glitch E
 
 ## Related repos
 
-- [glitch-cod-confirm](https://github.com/glitch-exec-labs/glitch-cod-confirm)
-- [glitch-grow-ads-agent](https://github.com/glitch-exec-labs/glitch-grow-ads-agent)
-- [glitch-social-media-agent](https://github.com/glitch-exec-labs/glitch-social-media-agent)
+- [glitch-trading-core](https://github.com/glitch-exec-labs/glitch-trading-core)
+- [glitch-ouroboros-snake-strategy](https://github.com/glitch-exec-labs/glitch-ouroboros-snake-strategy)
+- [glitch-indian-king-cobra](https://github.com/glitch-exec-labs/glitch-indian-king-cobra)
+- [glitch-terciopelo](https://github.com/glitch-exec-labs/glitch-terciopelo)
 - [glitch-brand-assets](https://github.com/glitch-exec-labs/glitch-brand-assets)
 
 ## Brand note
