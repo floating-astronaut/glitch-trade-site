@@ -42,6 +42,64 @@ const steps = [
       </p>
     </div>
 
+<div aria-hidden="true" class="hidden md:block reveal mt-10 -mb-4">
+      <svg viewBox="0 0 1040 120" xmlns="http://www.w3.org/2000/svg" class="w-full max-w-4xl mx-auto">
+        <!-- dashed backbone -->
+        <line x1="120" y1="60" x2="920" y2="60"
+              stroke="rgb(var(--color-border))" stroke-width="2"
+              stroke-dasharray="6 8" />
+
+        <!-- progress overlay -->
+        <line x1="120" y1="60" x2="920" y2="60"
+              stroke="url(#pilot-grad)" stroke-width="3" stroke-linecap="round" />
+
+        <defs>
+          <linearGradient id="pilot-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%"   stop-color="rgb(var(--color-brand))" stop-opacity="0.15" />
+            <stop offset="100%" stop-color="rgb(var(--color-brand))" stop-opacity="0.95" />
+          </linearGradient>
+        </defs>
+
+        <!-- node 1 -->
+        <g transform="translate(120 60)">
+          <circle r="22" fill="rgb(var(--color-surface))" stroke="rgb(var(--color-brand))" stroke-width="2" />
+          <text x="0" y="5" text-anchor="middle"
+                font-family="ui-monospace, 'Geist Mono', monospace"
+                font-size="12" font-weight="700"
+                fill="rgb(var(--color-brand))">01</text>
+        </g>
+        <text x="120" y="110" text-anchor="middle"
+              font-family="ui-monospace, 'Geist Mono', monospace"
+              font-size="11" letter-spacing="0.06em"
+              fill="rgb(var(--color-muted))">DAY 0</text>
+
+        <!-- node 2 -->
+        <g transform="translate(520 60)">
+          <circle r="22" fill="rgb(var(--color-surface))" stroke="rgb(var(--color-brand))" stroke-width="2" />
+          <text x="0" y="5" text-anchor="middle"
+                font-family="ui-monospace, 'Geist Mono', monospace"
+                font-size="12" font-weight="700"
+                fill="rgb(var(--color-brand))">02</text>
+        </g>
+        <text x="520" y="110" text-anchor="middle"
+              font-family="ui-monospace, 'Geist Mono', monospace"
+              font-size="11" letter-spacing="0.06em"
+              fill="rgb(var(--color-muted))">DAY 1–6</text>
+
+        <!-- node 3 (filled = destination) -->
+        <g transform="translate(920 60)">
+          <circle r="22" fill="rgb(var(--color-brand))" stroke="rgb(var(--color-brand))" stroke-width="2" />
+          <text x="0" y="5" text-anchor="middle"
+                font-family="ui-monospace, 'Geist Mono', monospace"
+                font-size="12" font-weight="700"
+                fill="rgb(var(--color-brand-ink))">03</text>
+        </g>
+        <text x="920" y="110" text-anchor="middle"
+              font-family="ui-monospace, 'Geist Mono', monospace"
+              font-size="11" letter-spacing="0.06em"
+              fill="rgb(var(--color-muted))">DAY 7</text>
+      </svg>
+    </div>
     <ol class="mt-14 grid gap-5 md:grid-cols-3" role="list">
       {steps.map((s, i) => (
         <li class="card p-6 md:p-7 reveal relative">
