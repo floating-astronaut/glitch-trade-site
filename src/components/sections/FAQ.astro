@@ -6,27 +6,27 @@ import Icon from '~/components/Icon.astro';
 const faqs = [
   {
     q: 'Is this financial advice?',
-    a: 'No. Glitch Trade is a software tool. Ensemble outputs, backtests, and anything the bot says are information — not a recommendation, solicitation, or advice to buy, sell, or hold any asset. Every trading decision is yours. We don\'t know your tax situation, risk tolerance, or local regulations, and we can\'t act as your advisor. Trading crypto involves substantial risk including total loss of capital.',
+    a: 'No. Glitch Trade is an AI software product licensed to trading operators. Ensemble outputs, backtests, and anything the tool produces are information — not a recommendation, solicitation, or advice to buy, sell, or hold any asset. Every trading decision is yours. We don\'t know your book, your tax situation, your risk mandate, or your local regulations, and we can\'t act as your advisor. Trading crypto involves substantial risk including total loss of capital.',
   },
   {
-    q: 'Do I need my own exchange account?',
-    a: 'Yes. Glitch Trade connects to your exchange via a trade-only API key — we never custody your funds. That means you keep full control of your capital, and the worst we can do on your behalf is place or cancel orders. Withdrawals are never enabled. Works with any CCXT-supported venue: Binance, OKX, Bybit, KuCoin, Coinbase Advanced, Bitget, MEXC, Gate.io, Kraken, and 90+ more.',
+    q: 'Do you place orders on my exchange?',
+    a: 'No. We never touch your exchange and we never execute on your behalf. The tools produce structured output — direction, confidence, volatility estimate, suggested bracket — and your desk wires that into your own CCXT client, your own OMS, or whatever execution stack you already run. Order placement, sizing, risk gates, and cancels are entirely the operator\'s responsibility. We ship tools; you run the book.',
   },
   {
-    q: 'How are signals delivered?',
-    a: 'Telegram, in under five seconds from the candle close that triggered them. You\'ll get the ticker, direction (long / short / hold), the ensemble confidence score, and each of the nine sub-scores. On Pro and Elite, the corresponding order fires automatically and you get a fill confirmation — also in Telegram — within a second or two of execution.',
+    q: 'How do I consume the tool output?',
+    a: 'Three surfaces today: a REST endpoint for programmatic pulls, a webhook for event-driven pipelines, and a Telegram surface for manual review. All three expose the same payload — ticker, direction (long / short / hold), ensemble confidence, nine sub-scores, and a suggested volatility-sized bracket. Latency from candle close to output availability is typically under five seconds. Telegram is just one surface, not the product.',
   },
   {
     q: 'What assets are covered?',
-    a: 'Today: crypto spot pairs (BTC, ETH, SOL, XRP on the Starter tier; any CCXT-listed pair on Pro and Elite). Forex and commodity support is on the roadmap — if that\'s what you need, email support@glitchexecutor.com and we\'ll tell you where it is.',
+    a: 'Today: crypto spot pairs. The Starter tier exposes a BTC / ETH / SOL / XRP watchlist; higher tiers expose any CCXT-listed pair on demand. Forex and commodity support is on the roadmap — if that\'s what you need, email support@glitchexecutor.com and we\'ll tell you where it is.',
   },
   {
-    q: 'What\'s the minimum capital to run this?',
-    a: 'There\'s no minimum set by us — but exchange minimum order sizes and your own risk management should drive the answer. Position sizing is configured per-trade and capped to whatever value you set. A common approach among our users is to paper-trade on Pro for a few weeks before committing capital on Elite. If you\'re not sure what size makes sense for your situation, that\'s a question for a licensed advisor, not our support inbox.',
+    q: 'What happens if I lose money trading on the tool\'s output?',
+    a: 'That risk sits entirely with the operator. We are not a fiduciary, not an advisor, and not a managed-service provider. The tools produce information; you choose whether, when, and how to act on it, with your own capital, on your own infrastructure. Losses (and profits) are yours. If you\'re not sure whether this product fits your mandate, that\'s a conversation for a licensed advisor, not our support inbox.',
   },
   {
-    q: 'What happens when the ensemble is wrong?',
-    a: 'Every trade ships with automatic stop-loss and take-profit levels — the risk per signal is bounded before the trade fires. The aggregator only triggers above a minimum confidence threshold, so low-conviction setups are suppressed rather than traded. No model (and no trader) is right every time; the ensemble\'s edge comes from aggregating nine views and sizing losses small. Past ensemble performance in any period does not guarantee future results.',
+    q: 'How does the ensemble handle low-conviction setups?',
+    a: 'The aggregator only emits a directional read above a minimum confidence threshold — below the gate, the output is hold. Every read also carries a volatility-derived bracket (suggested stop-loss and take-profit) the operator can use, ignore, or adapt to their own risk framework. No model (and no trader) is right every time; the ensemble\'s design aggregates nine views to filter the worst setups. Past tool behavior on any historical tape does not guarantee future results.',
   },
 ];
 ---
@@ -35,9 +35,9 @@ const faqs = [
   <div class="container-app grid md:grid-cols-12 gap-10">
     <div class="md:col-span-4 reveal">
       <p class="eyebrow"><Icon name="spark" size={14} /> FAQ</p>
-      <h2 class="mt-4">The questions every trader asks before they connect a key.</h2>
+      <h2 class="mt-4">The questions every operator asks before they license the tools.</h2>
       <p class="mt-5 text-fluid-base text-muted">
-        Answered up front so you can decide with evidence, not a support ticket.
+        Answered up front so your desk can decide with evidence, not a support ticket.
       </p>
     </div>
 

@@ -6,12 +6,12 @@ import Icon from '~/components/Icon.astro';
 // at a category level — no deployment specifics.
 const stack = [
   { icon: 'cpu' as const,      name: '9-model ML ensemble',        note: 'Weighted aggregator, confidence-gated' },
-  { icon: 'send' as const,     name: 'Telegram Bot API',           note: 'Signals, confirms, commands' },
-  { icon: 'link' as const,     name: 'CCXT (100+ exchanges)',      note: 'Trade-only API keys, AES-256' },
-  { icon: 'bolt' as const,     name: 'LLM sentiment layer',        note: 'News + social + Fear &amp; Greed' },
+  { icon: 'send' as const,     name: 'REST / Webhook / Telegram',  note: 'Output surfaces — operator\'s choice' },
+  { icon: 'link' as const,     name: 'CCXT adapters (100+ venues)',note: 'Reference clients — you wire the execution' },
+  { icon: 'bolt' as const,     name: 'LLM sentiment layer',        note: 'News + social + Fear &amp; Greed, as a sub-score' },
   { icon: 'database' as const, name: 'Vector memory',              note: 'Pattern recall across regimes' },
-  { icon: 'chart' as const,    name: 'Walk-forward backtesting',   note: 'Fee-inclusive, out-of-sample' },
-  { icon: 'shield' as const,   name: 'Testnet-first execution',    note: 'Pro tier paper-trades by default' },
+  { icon: 'chart' as const,    name: 'Walk-forward backtest harness', note: 'Fee-inclusive, out-of-sample' },
+  { icon: 'shield' as const,   name: 'Paper / testnet replay',     note: 'Validate tool output before wiring live' },
   { icon: 'layers' as const,   name: 'Cloudflare edge',            note: 'Pages, Workers, Turnstile' },
 ];
 ---
@@ -20,11 +20,12 @@ const stack = [
   <div class="container-app">
     <div class="max-w-2xl reveal">
       <p class="eyebrow"><Icon name="code" size={14} /> Under the hood</p>
-      <h2 class="mt-4">An execution stack built for traders, not demos.</h2>
+      <h2 class="mt-4">A toolkit built for operators, not demos.</h2>
       <p class="mt-5 text-fluid-lg text-muted">
-        Your keys stay trade-only. Your funds stay on your exchange. The ensemble,
-        the sentiment layer, and the risk gate all run on infrastructure we own —
-        no black-box SaaS moat sitting between you and the market.
+        The ensemble, the sentiment layer, and the backtest harness run on
+        infrastructure we own and license to you. Order flow, API keys, and
+        capital run on infrastructure <em class="not-italic text-fg">you</em>
+        own — no black-box SaaS moat sitting between the operator and the market.
       </p>
     </div>
 

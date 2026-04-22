@@ -15,20 +15,20 @@ const outcomes = [
   {
     icon: 'link' as const,
     metric: '100+',
-    label: 'Supported exchanges',
-    context: 'Via CCXT · Binance, OKX, Bybit, KuCoin, Coinbase, Bitget, MEXC, Gate.io, Kraken +',
+    label: 'CCXT-compatible venues',
+    context: 'Wire the tool output into your own CCXT client — Binance, OKX, Bybit, KuCoin, Coinbase, Bitget, MEXC, Gate.io, Kraken +',
   },
   {
     icon: 'bolt' as const,
     metric: '< 5s',
-    label: 'Signal to Telegram',
-    context: 'From candle close to ensemble consensus to your phone — in under five seconds',
+    label: 'Candle → tool output',
+    context: 'From candle close to ensemble consensus available on your surface — the operator decides what to do with it',
   },
   {
     icon: 'shield' as const,
     metric: '24/7',
-    label: 'Autonomous monitoring',
-    context: 'Ensemble fires only above a confidence threshold — low-conviction setups suppressed',
+    label: 'Continuous tool availability',
+    context: 'Ensemble only emits above a confidence threshold — low-conviction setups are suppressed from the output stream',
   },
 ];
 ---
@@ -36,11 +36,12 @@ const outcomes = [
 <section id="outcomes" class="py-20 md:py-28 border-y border-border/40 bg-surface/30">
   <div class="container-app">
     <div class="max-w-2xl reveal">
-      <p class="eyebrow"><Icon name="bolt" size={14} /> What the system does</p>
-      <h2 class="mt-4">Nine lenses on every candle. One decision to act on.</h2>
+      <p class="eyebrow"><Icon name="bolt" size={14} /> What the tools produce</p>
+      <h2 class="mt-4">Nine lenses on every candle. One consolidated read for the operator.</h2>
       <p class="mt-4 text-fluid-base text-muted">
-        Each model specializes in a different market read. They vote. The ensemble
-        decides. You get a single signal — not nine conflicting indicators.
+        Each model specializes in a different market read. They vote. The
+        aggregator consolidates nine sub-scores into one read you can interpret —
+        not nine conflicting indicators. Every execution decision stays with you.
       </p>
     </div>
 

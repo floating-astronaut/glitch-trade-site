@@ -6,21 +6,21 @@ import Icon from '~/components/Icon.astro';
 const steps = [
   {
     week: 'Day 0',
-    title: 'Open the Telegram bot',
+    title: 'Request a trial key',
     body:
-      'No credit card. No app install. Tap the Telegram link, enter your name and email, and you\'re inside the bot. Seven days of full access starts the moment you hit send.',
+      'No credit card. No sales call. Submit the contact form and we\'ll issue you a 7-day evaluation key with access to the REST endpoint, the Telegram surface, and the paper harness. Seven days of full tool access starts the moment the key lands in your inbox.',
   },
   {
     week: 'Day 1–6',
-    title: 'Connect &amp; analyse',
+    title: 'Run the tools on your own data',
     body:
-      'Send /connect_exchange, paste a trade-only API key, and type any crypto ticker — BTC, ETH, SOL, XRP. All nine models analyse it simultaneously and return a consensus signal within seconds. On Pro, it auto-executes to testnet.',
+      'Query the ensemble against any CCXT-listed pair — BTC, ETH, SOL, XRP, or anything else. All nine models return their sub-scores and a consolidated read. Replay it against the paper harness, wire it into your own CCXT client on testnet, interpret the output the way your desk sees fit.',
   },
   {
     week: 'Day 7',
-    title: 'Choose a plan or walk away',
+    title: 'License the tools or walk away',
     body:
-      'At the end of the trial the bot sends a payment link. Pick Starter, Pro, or Elite — or don\'t. There\'s no auto-charge, no cancellation form, no dark pattern. You keep whatever signals, learnings, and API keys you came in with.',
+      'At the end of the trial we send a license link. Pick a tier — or don\'t. There\'s no auto-charge, no cancellation form, no dark pattern. The decision to keep running the tools, and the decision to place any real trade based on them, is entirely yours.',
   },
 ];
 ---
@@ -33,11 +33,12 @@ const steps = [
 
   <div class="container-app">
     <div class="max-w-2xl reveal">
-      <p class="eyebrow"><Icon name="shield" size={14} /> 7-day free trial · no card needed</p>
-      <h2 class="mt-4">See the ensemble work — before you spend a dollar.</h2>
+      <p class="eyebrow"><Icon name="shield" size={14} /> 7-day tool evaluation · no card needed</p>
+      <h2 class="mt-4">Evaluate the tools on your own stack — before you license them.</h2>
       <p class="mt-5 text-fluid-lg text-muted">
         No "book a demo", no sales call, no credit card up front. Seven days
-        of full bot access so you can decide with evidence — not a pitch deck.
+        of full tool access — API, paper harness, and Telegram surface — so
+        your desk can decide with evidence, not a pitch deck.
       </p>
     </div>
 
@@ -59,11 +60,12 @@ const steps = [
 
     <div class="mt-10 flex flex-wrap items-center gap-3 reveal">
       <a href="#contact" class="btn btn-primary">
-        Start free trial
+        Start a 7-day evaluation
         <Icon name="arrow-right" size={16} />
       </a>
       <p class="text-fluid-xs text-subtle">
-        Cancel anytime via Telegram. Your funds never leave your exchange — we only hold trade-only API keys.
+        Your funds and exchange API keys never touch our infrastructure. We ship
+        tools; the operator runs the book. Let the evaluation expire any time.
       </p>
     </div>
   </div>

@@ -20,23 +20,28 @@ featured: true
 import ImageSlot from '~/components/ImageSlot.astro';
 import Icon from '~/components/Icon.astro';
 
-> **Backtest — not live performance.** Everything in this writeup is a
-> simulation against historical data. Backtest results have inherent
-> limitations (no slippage model for illiquid periods, no partial fills, no
-> exchange downtime) and do not guarantee future returns. Nothing here is
-> financial advice. Read <a href="/legal/terms">the terms</a> before trading.
+> **Backtest — not live performance, not a prediction of your PnL.**
+> Everything in this writeup is a simulation of *tool output* against
+> historical data. Backtest results have inherent limitations (no slippage
+> model for illiquid periods, no partial fills, no exchange downtime) and do
+> not guarantee future returns for any operator running the tools on their
+> own book. Nothing here is financial advice. Glitch Trade licenses software
+> to trading operators; the operator decides every real trade.
+> Read <a href="/legal/terms">the terms</a> before trading.
 
 ## The setup
 
 The production ensemble runs nine models in parallel — trend, mean-reversion,
 momentum, an ML predictor, multi-timeframe confluence, volume profile, session
-analyst, LLM sentiment, and a weighted aggregator that turns nine sub-scores
-into a single long / short / hold vote.
+analyst, LLM sentiment, and a weighted aggregator that consolidates nine
+sub-scores into a single long / short / hold read. This is the output an
+operator would consume when running the tools themselves.
 
 For this writeup we froze the ensemble at the January 2025 config and replayed
 it through twelve months of <span class="font-mono">BTC/USDT</span>
 five-minute candles from a top-three exchange's archive. Walk-forward, out-of-sample,
-no look-ahead bias.
+no look-ahead bias. This is what the tool produced on that tape when you run
+it yourself — not what any operator actually earned in live trading.
 
 <ImageSlot w={1280} h={720} label="Equity curve — 9-model ensemble on BTC/USDT 5m (simulated)" alt="Simulated equity curve rising from 100 to ~165 over 12 months with ~11% max drawdown" />
 
@@ -78,8 +83,10 @@ winners are (on average) slightly bigger than the losers.
 - **Execution reality.** The backtest assumes every fill happens. In production,
   during high-volatility candles, the gate can trigger slippage >1 tick.
 - **Future ≠ past.** Nothing in this writeup predicts what the ensemble will do
-  on tomorrow's tape. If you're trading your own capital: paper-trade it on Pro
-  for a few weeks, then decide.
+  on tomorrow's tape — or what an operator's PnL will look like running the
+  tools on their own book. If you're trading your own capital: run the paper
+  harness for a few weeks, interpret the output against your own risk
+  framework, then decide for yourself.
 
 <div class="mt-8 card p-6 flex items-start gap-4">
   <Icon name="spark" size={22} class="text-brand mt-1" />

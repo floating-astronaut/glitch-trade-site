@@ -6,13 +6,15 @@ import ImageSlot from '~/components/ImageSlot.astro';
 <section id="case-spotlight" class="py-24 md:py-32 bg-surface/40 border-y border-border/60">
   <div class="container-app grid md:grid-cols-12 gap-10 items-center">
     <div class="md:col-span-5 reveal">
-      <p class="eyebrow"><Icon name="chart" size={14} /> Strategy spotlight · simulated</p>
+      <p class="eyebrow"><Icon name="chart" size={14} /> Tool behavior · simulated</p>
       <h2 class="mt-4">BTC/USDT <span class="gradient-text">walk-forward backtest.</span></h2>
       <p class="mt-5 text-muted text-fluid-lg">
-        Twelve-month walk-forward backtest on <span class="font-mono text-fg">BTC/USDT</span>
-        5-minute candles using the ensemble's minimum-confidence gate. Below the
-        gate, the aggregator holds; above it, long/short signals fire with
-        bracketed stop-loss and take-profit attached to every entry.
+        Twelve-month walk-forward replay of the ensemble's output on
+        <span class="font-mono text-fg">BTC/USDT</span> 5-minute candles using
+        the production confidence gate. Below the gate, the aggregator emits
+        hold; above it, it emits long/short reads with a suggested
+        stop-loss and take-profit. This is what the <em class="not-italic text-fg">tool</em>
+        produced on historical tape — not a prediction of your PnL.
       </p>
 
       <dl class="mt-8 grid grid-cols-3 gap-4">
@@ -31,10 +33,12 @@ import ImageSlot from '~/components/ImageSlot.astro';
       </dl>
 
       <p class="mt-4 text-fluid-xs text-subtle max-w-prose-tight">
-        Hypothetical, fee-inclusive, walk-forward simulation — <em class="not-italic text-fg">not</em> live
-        trading performance. Results from backtests have inherent limitations and
-        do not guarantee future results. Read the full writeup for the exact
-        assumptions we used.
+        Hypothetical, fee-inclusive, walk-forward simulation of tool output —
+        <em class="not-italic text-fg">not</em> live trading performance and
+        <em class="not-italic text-fg">not</em> a prediction of any operator's
+        PnL. Backtests have inherent limitations and do not guarantee future
+        results. The operator, not the tool, decides every real trade. Read
+        the full writeup for the exact assumptions we used.
       </p>
 
       <a href="/case-studies/btc-ensemble-backtest" class="btn btn-secondary mt-8">
