@@ -18,9 +18,11 @@ publishedAt: 2026-03-14
 featured: true
 ---
 
-import ImageSlot from '~/components/ImageSlot.astro';
 import Icon from '~/components/Icon.astro';
 
+import { Image } from 'astro:assets';
+import img1 from './btc-ensemble-backtest-equity-curve.png';
+import img2 from './btc-ensemble-backtest-monthly-pnl.png';
 > **Backtest — not live performance, not a prediction of your PnL.**
 > Everything in this writeup is a simulation of *tool output* against
 > historical data. Backtest results have inherent limitations (no slippage
@@ -44,7 +46,14 @@ five-minute candles from a top-three exchange's archive. Walk-forward, out-of-sa
 no look-ahead bias. This is what the tool produced on that tape when you run
 it yourself — not what any operator actually earned in live trading.
 
-<ImageSlot w={1280} h={720} label="Equity curve — 9-model ensemble on BTC/USDT 5m (simulated)" alt="Simulated equity curve rising from 100 to ~165 over 12 months with ~11% max drawdown" />
+<Image
+  src={img1}
+  alt="Simulated equity curve rising from 100 to ~165 over 12 months with ~11% max drawdown"
+  widths={[640, 1024, 1280]}
+  sizes="(min-width: 768px) 720px, 100vw"
+  loading="lazy"
+  class="w-full h-auto rounded-lg"
+/>
 
 ## The rules
 
@@ -72,7 +81,14 @@ confidence gate with bounded losses. 63% win rate with symmetric R:R wouldn't
 clear fees; the aggregator consistently filters out the worst setups, so the
 winners are (on average) slightly bigger than the losers.
 
-<ImageSlot w={1280} h={720} label="Monthly PnL distribution — simulated" alt="Bar chart of monthly returns, predominantly positive with two drawdown months" />
+<Image
+  src={img2}
+  alt="Bar chart of monthly returns, predominantly positive with two drawdown months"
+  widths={[640, 1024, 1280]}
+  sizes="(min-width: 768px) 720px, 100vw"
+  loading="lazy"
+  class="w-full h-auto rounded-lg"
+/>
 
 ## What this doesn't tell you
 
