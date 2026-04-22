@@ -37,7 +37,7 @@ const updated = '2026-04-19';
         <li><strong>Account identifiers</strong> — account credentials, Telegram user ID where you use that surface, and the commands you send our tools, for access control and billing.</li>
         <li><strong>Exchange API keys</strong> — encrypted with AES-256, trade-only scope (no withdrawal permissions). You can revoke at any time.</li>
         <li><strong>Billing data</strong> — handled by Stripe (see §6 Sub-processors). We receive only customer ID, email, amount, last-4 of card, and plan. We never see full card numbers.</li>
-        <li><strong>Aggregate analytics</strong> — page views, referrers, device type. No cookies, no cross-site tracking, no fingerprinting, no IP-to-user resolution.</li>
+        <li><strong>Analytics</strong> — page views, referrers, device type, and approximate (city-level) location. When Google Analytics 4 is enabled on a site, it sets first-party cookies (<code>_ga</code>, <code>_ga_&lt;ID&gt;</code>) and sends pseudonymous event data to Google (acting as our processor). No device fingerprinting, no cross-site ad retargeting.</li>
         <li><strong>Turnstile challenge data</strong> — processed by Cloudflare under their privacy terms. We receive only pass/fail.</li>
         <li><strong>Server logs</strong> — IP address, request timestamp, and path, retained for up to 30 days for security and abuse prevention.</li>
       </ul>
@@ -56,7 +56,7 @@ const updated = '2026-04-19';
 
       <h2>4. What we don't do</h2>
       <ul>
-        <li>No cross-site tracking, advertising cookies, or third-party ad-tech pixels on the marketing site.</li>
+        <li>No advertising cookies beyond the Google Analytics cookies noted in §2. No remarketing pixels, no cross-site ad tracking, no Meta / TikTok / LinkedIn / Criteo ad-tech pixels.</li>
         <li>No selling or licensing of personal data to third parties.</li>
         <li>No enrichment of your form submission against third-party data brokers or lookup services.</li>
         <li>No profiling or automated decision-making that produces legal effects on you.</li>
@@ -79,6 +79,7 @@ const updated = '2026-04-19';
       <ul>
         <li><strong>Cloudflare, Inc.</strong> — site delivery, WAF, Turnstile bot mitigation, Pages hosting.</li>
         <li><strong>Stripe, Inc.</strong> — subscription billing, checkout, payment card processing.</li>
+        <li><strong>Google Ireland Limited / Google LLC</strong> — Google Analytics 4 (GA4) pageview and event telemetry. Data is processed in Google's US and EU infrastructure under their Google Ads Data Processing Terms.</li>
         <li><strong>Telegram Messenger Inc.</strong> — where used as a tool surface. Your Telegram messages are processed under Telegram's own privacy terms before reaching our servers.</li>
         <li><strong>Primary database hosting</strong> — Postgres-compatible, encrypted at rest, located in <strong>{legalEntity.dataStorageRegion}</strong>. Backups encrypted and retained per §5.</li>
         <li><strong>Your exchange</strong> — via API keys you provide. Trade-only scope; see Terms §6.</li>
@@ -92,7 +93,7 @@ const updated = '2026-04-19';
         transferred from Canada to the United States and may be subject to
         U.S. law, including lawful-access regimes that differ from Canadian
         law.
-      </p>
+       Separately, when Google Analytics 4 is enabled, pageview and event data flow directly from visitors' browsers to Google servers in the US and EU under Google's own transfer mechanisms (Google's SCCs + Supplementary Measures).</p>
       <p>
         Where required for users in other regions, transfers rely on
         mechanisms such as the EU Commission's Standard Contractual Clauses,
