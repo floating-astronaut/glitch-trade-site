@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import Base from '~/layouts/Base.astro';
 import Icon from '~/components/Icon.astro';
 import ImageSlot from '~/components/ImageSlot.astro';
+import { Image } from 'astro:assets';
 
 const entries = (await getCollection('case-studies', ({ data }) => !data.draft))
   .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
@@ -33,15 +34,26 @@ const entries = (await getCollection('case-studies', ({ data }) => !data.draft))
             href={`/case-studies/${entry.slug}`}
             class="card p-6 md:p-8 block h-full transition-transform hover:-translate-y-0.5"
           >
-            <ImageSlot
-              w={960}
-              h={540}
-              ratio="16 / 9"
-              label={entry.data.coverAlt ?? entry.data.client}
-              alt={entry.data.coverAlt ?? entry.data.title}
-              rounded="md"
-              class="mb-6"
-            />
+            {entry.data.cover ? (
+              <Image
+                src={entry.data.cover}
+                alt={entry.data.coverAlt ?? entry.data.title}
+                widths={[360, 480, 720, 960]}
+                sizes="(min-width: 768px) 480px, 100vw"
+                loading="lazy"
+                class="rounded-md mb-6 w-full h-auto"
+              />
+            ) : (
+              <ImageSlot
+                w={960}
+                h={540}
+                ratio="16 / 9"
+                label={entry.data.coverAlt ?? entry.data.client}
+                alt={entry.data.coverAlt ?? entry.data.title}
+                rounded="md"
+                class="mb-6"
+              />
+            )}
             <p class="eyebrow">{entry.data.industry}</p>
             <h2 class="mt-3 text-fluid-2xl">{entry.data.title}</h2>
             <p class="mt-3 text-muted text-fluid-sm">{entry.data.summary}</p>

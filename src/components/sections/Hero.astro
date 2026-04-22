@@ -1,6 +1,7 @@
 ---
 import Icon from '~/components/Icon.astro';
-import ImageSlot from '~/components/ImageSlot.astro';
+import { Image } from 'astro:assets';
+import heroImage from '~/assets/brand/generated/hero.png';
 import Mascot from '~/components/Mascot.astro';
 ---
 
@@ -60,13 +61,13 @@ import Mascot from '~/components/Mascot.astro';
     <div class="md:col-span-5 reveal">
       {/* Product screenshot slot — replaces the legacy signal terminal. */}
       <div class="relative">
-        <ImageSlot
-          w={960}
-          h={640}
-          ratio="16 / 11"
-          label="Glitch Trade — 9-model ensemble output card"
+        <Image
+          src={heroImage}
           alt="Glitch Trade ensemble output card showing model confidence scores across nine specialized models"
-          class="shadow-glow-brand"
+          widths={[480, 768, 960]}
+          sizes="(min-width: 768px) 480px, 100vw"
+          loading="eager"
+          class="rounded-lg shadow-glow-brand w-full h-auto"
         />
         <div class="absolute -bottom-6 -left-6 hidden sm:block">
           <Mascot size={72} priority alt="Glitch cobra mascot" />

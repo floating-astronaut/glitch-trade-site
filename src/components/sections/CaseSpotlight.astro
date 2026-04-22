@@ -1,6 +1,7 @@
 ---
 import Icon from '~/components/Icon.astro';
-import ImageSlot from '~/components/ImageSlot.astro';
+import { Image } from 'astro:assets';
+import caseImage from '~/assets/brand/generated/case-spotlight.png';
 ---
 
 <section id="case-spotlight" class="py-24 md:py-32 bg-surface/40 border-y border-border/60">
@@ -49,13 +50,13 @@ import ImageSlot from '~/components/ImageSlot.astro';
 
     <div class="md:col-span-7 reveal">
       {/* Equity-curve chart goes here. Keep 16:10 for parity with analytics exports. */}
-      <ImageSlot
-        w={1280}
-        h={800}
-        ratio="16 / 10"
-        label="BTC/USDT ensemble backtest — equity curve"
+      <Image
+        src={caseImage}
         alt="Simulated equity curve for the 9-model ensemble on BTC/USDT 5-minute candles over 12 months"
-        rounded="xl"
+        widths={[640, 960, 1280]}
+        sizes="(min-width: 768px) 640px, 100vw"
+        loading="lazy"
+        class="rounded-xl w-full h-auto"
       />
     </div>
   </div>
