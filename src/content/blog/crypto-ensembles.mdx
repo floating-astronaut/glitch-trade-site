@@ -1,0 +1,74 @@
+---
+title: "Why one model is never enough for crypto"
+summary: "Single-model strategies die on regime changes. Ensembles survive — not because they're smarter, but because they fail uncorrelated."
+tags: ["Ensembles", "Crypto"]
+publishedAt: 2026-04-15
+readingMinutes: 5
+featured: true
+---
+
+## The regime problem
+
+Every profitable crypto strategy you've ever seen was profitable *in a regime*.
+Trend-following printed money in 2020–2021. Mean-reversion printed money in
+the 2022 chop. Carry printed money every time funding got stupid. None of
+them printed money in all three periods.
+
+The industry's response is usually to "improve" the single model — add
+features, change the lookback, bolt on a regime filter. What actually
+happens is you overfit the most recent 6 months and the next regime
+murders you.
+
+## Why ensembles work
+
+An ensemble is not "one model with more parameters". It's several models
+with *uncorrelated failure modes*, combined with a sizing layer that
+weights them by recent out-of-sample performance.
+
+A minimal ensemble for BTC/ETH:
+
+1. **Trend** — EMA crossover or donchian breakout. Makes money in
+   directional regimes, loses small in chop.
+2. **Mean-reversion** — z-score of price vs. 20-day VWAP. Makes money in
+   chop, gives back gains in strong trends.
+3. **Carry / funding** — long when perp funding is deeply negative, short
+   when it's euphoric. Orthogonal to both above.
+
+Each model, alone, has a Sharpe of ~0.6–0.9 with a max drawdown near 30%.
+Combined with equal-weight sizing, the ensemble Sharpe jumps to ~1.3–1.5
+and max drawdown drops to ~15% — because the models' bad months don't line
+up.
+
+## The sizing layer matters more than the models
+
+Equal-weight is fine to start. It's survivable. But the real alpha is in
+*dynamic* sizing: upweight models that are working, downweight models that
+are broken — without overfitting to the last 3 weeks.
+
+What we run:
+
+- **Rolling 60-day Sharpe** per model, floor at 0.
+- **Regime indicator** (20-day realized vol vs. 120-day) biases weight
+  toward trend in low-vol, mean-reversion in high-vol.
+- **Kelly fraction** of 0.25 on the combined portfolio. Not 1.0. Not 0.5.
+  Crypto drawdowns are bad enough that quarter-Kelly is where most pros live.
+
+## The backtest lie
+
+You can make any ensemble look great in backtest by tuning the weights.
+The actual test is walk-forward:
+
+- Freeze model code.
+- At every rebalance, compute weights using *only* data available at that
+  moment.
+- Track the live-replay equity curve, not the optimized-weights curve.
+
+The ensembles that survive this test usually lose **30–40% of their
+backtested Sharpe** in walk-forward — and are still profitable after.
+The ones that don't survive are the ones you were going to lose money on.
+
+## Bottom line
+
+Don't build a better single model. Build three mediocre uncorrelated models
+and a sizing layer you can defend under walk-forward. The lift isn't
+elegant. It's just honest.
