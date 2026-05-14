@@ -13,7 +13,23 @@ Body text (if present) shown as indented sub-bullets.
 
 ## 2026-05-14
 
-- **03:24 UTC** — style: match grow's compact section + footer spacing (`247d3e3`) — 9 files
+- **03:47 UTC** — auto-sync: 2026-05-14 03:47 UTC (`aa00699`) — 1 file
+        M	src/lib/site.ts
+- **03:47 UTC** — feat(social): wire real social profile URLs (`69907fd`) — 3 files
+    - Replace placeholder socialLinks with the live per-site profile URLs
+      for Instagram, TikTok, Facebook, X, LinkedIn, Reddit, and (where
+      applicable) Discord.
+    - Drop Snapchat + WhatsApp entries (no handles provided).
+    - Add X and Discord icon SVGs (fetched from simpleicons).
+    - Edge: update discord.inviteUrl to the canonical T6Ax8jp49 invite.
+- **03:36 UTC** — feat(brand): add SocialIcons to Nav + Footer (`68085c8`) — 11 files
+    Ported SocialIcons component from tejaskaranagrawal-portfolio. Renders
+    the 7 social profile icons (Facebook, Instagram, TikTok, LinkedIn,
+    Reddit, Snapchat, WhatsApp) as a compact icon strip in the header
+    (desktop only) and a normal-sized strip in the footer brand column.
+    socialLinks data lives in src/lib/site.ts with placeholder '#' hrefs —
+    fill in the real profile URLs per site.
+- **03:33 UTC** — style: match grow's compact section + footer spacing (`eeaf659`) — 10 files
     Replace py-24 md:py-32 / py-20 md:py-28 with py-8 md:py-10 lg:py-12
     across section components. Drop mt-32 from <footer> and tighten the
     inner grid from py-16 to py-10 md:py-12. Hero pt/pb shrunk to match

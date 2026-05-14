@@ -56,5 +56,5 @@ export const socialLinks = [
   { name: 'X',         handle: '@GlitchExecutor',   href: 'https://x.com/GlitchExecutor',                        icon: '/icons/social/x.svg' },
   { name: 'LinkedIn',  handle: 'glitch-executor',   href: 'https://www.linkedin.com/company/glitch-executor/',   icon: '/icons/social/linkedin.svg' },
   { name: 'Reddit',    handle: 'u/glitchExecutor',  href: 'https://www.reddit.com/user/glitchExecutor/',         icon: '/icons/social/reddit.svg' },
-  { name: 'Discord',   handle: 'Glitch Trade',      href: 'https://discord.gg/F7KZybe7',                         icon: '/icons/social/discord.svg' },
+  { name: 'Discord',   handle: 'Glitch Trade',      href: 'https://discord.gg/Fsnt63pmS',                        icon: '/icons/social/discord.svg' },
 ] as const;
