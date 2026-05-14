@@ -49,13 +49,12 @@ export type NavItem = (typeof nav)[number];
 
 
 // Public social profiles — surfaced via <SocialIcons/> in Nav + Footer.
-// TODO(tejas): replace placeholder hrefs with the real per-site profile URLs.
 export const socialLinks = [
-  { name: 'Facebook',  handle: '', href: '#', icon: '/icons/social/facebook.svg' },
-  { name: 'Instagram', handle: '', href: '#', icon: '/icons/social/instagram.svg' },
-  { name: 'TikTok',    handle: '', href: '#', icon: '/icons/social/tiktok.svg' },
-  { name: 'LinkedIn',  handle: '', href: '#', icon: '/icons/social/linkedin.svg' },
-  { name: 'Reddit',    handle: '', href: '#', icon: '/icons/social/reddit.svg' },
-  { name: 'Snapchat',  handle: '', href: '#', icon: '/icons/social/snapchat.svg' },
-  { name: 'WhatsApp',  handle: '', href: '#', icon: '/icons/social/whatsapp.svg' },
+  { name: 'Instagram', handle: 'glitch_executor',   href: 'https://www.instagram.com/glitch_executor/',          icon: '/icons/social/instagram.svg' },
+  { name: 'TikTok',    handle: '@glitchexec',       href: 'https://www.tiktok.com/@glitchexec',                  icon: '/icons/social/tiktok.svg' },
+  { name: 'Facebook',  handle: 'glitchexecutor',    href: 'https://www.facebook.com/glitchexecutor',             icon: '/icons/social/facebook.svg' },
+  { name: 'X',         handle: '@GlitchExecutor',   href: 'https://x.com/GlitchExecutor',                        icon: '/icons/social/x.svg' },
+  { name: 'LinkedIn',  handle: 'glitch-executor',   href: 'https://www.linkedin.com/company/glitch-executor/',   icon: '/icons/social/linkedin.svg' },
+  { name: 'Reddit',    handle: 'u/glitchExecutor',  href: 'https://www.reddit.com/user/glitchExecutor/',         icon: '/icons/social/reddit.svg' },
+  { name: 'Discord',   handle: 'Glitch Trade',      href: 'https://discord.gg/F7KZybe7',                         icon: '/icons/social/discord.svg' },
 ] as const;
