@@ -1,0 +1,56 @@
+---
+const brands = [
+  { name: 'Binance',     icon: '/icons/stack/binance.svg' },
+  { name: 'Coinbase',    icon: '/icons/stack/coinbase.svg' },
+  { name: 'OKX',         icon: '/icons/stack/okx.svg' },
+  { name: 'TradingView', icon: '/icons/stack/tradingview.svg' },
+  { name: 'Telegram',    icon: '/icons/stack/telegram.svg' },
+  { name: 'Claude',      icon: '/icons/stack/anthropic.svg' },
+  { name: 'Python',      icon: '/icons/stack/python.svg' },
+  { name: 'FastAPI',     icon: '/icons/stack/fastapi.svg' },
+  { name: 'PostgreSQL',  icon: '/icons/stack/postgresql.svg' },
+  { name: 'Cloudflare',  icon: '/icons/stack/cloudflare.svg' },
+];
+const items = [...brands, ...brands];
+---
+
+<section aria-label="Venues and tools we connect to" class="py-6 md:py-10">
+  <div class="container-app">
+    <div class="brand-marquee relative w-full max-w-full overflow-hidden rounded-2xl border border-border bg-surface/60 py-4">
+      <div class="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-bg to-transparent"></div>
+      <div class="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-bg to-transparent"></div>
+      <div class="brand-marquee-track flex w-max items-center gap-3 px-4">
+        {items.map((item) => (
+          <div class="flex h-12 shrink-0 items-center gap-3 rounded-lg border border-border/70 bg-bg/70 px-4 text-sm text-muted">
+            <img src={item.icon} alt="" width="22" height="22" loading="lazy" decoding="async" class="brand-logo h-5 w-5" />
+            <span class="whitespace-nowrap font-medium text-fg">{item.name}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .brand-logo {
+    filter: brightness(0) invert(1);
+    opacity: 0.85;
+  }
+  .brand-marquee-track {
+    animation: brand-marquee-scroll 40s linear infinite;
+  }
+  .brand-marquee:hover .brand-marquee-track {
+    animation-play-state: paused;
+  }
+  @keyframes brand-marquee-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(calc(-50% - 0.375rem)); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .brand-marquee-track {
+      animation: none;
+      flex-wrap: wrap;
+      width: auto;
+    }
+  }
+</style>
