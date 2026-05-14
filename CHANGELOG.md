@@ -11,9 +11,13 @@ Body text (if present) shown as indented sub-bullets.
 
 ---
 
+## 2026-05-15
+
+- **03:03 UTC** — fix(social): black-fill X + Discord SVGs so invert flips them to white (`69399df`) — 3 files
+
 ## 2026-05-14
 
-- **03:47 UTC** — auto-sync: 2026-05-14 03:47 UTC (`aa00699`) — 1 file
+- **03:47 UTC** — auto-sync: 2026-05-14 03:47 UTC (`41eeaa7`) — 2 files
         M	src/lib/site.ts
 - **03:47 UTC** — feat(social): wire real social profile URLs (`69907fd`) — 3 files
     - Replace placeholder socialLinks with the live per-site profile URLs
