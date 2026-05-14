@@ -46,3 +46,16 @@ export const legalNav = [
 ] as const;
 
 export type NavItem = (typeof nav)[number];
+
+
+// Public social profiles — surfaced via <SocialIcons/> in Nav + Footer.
+// TODO(tejas): replace placeholder hrefs with the real per-site profile URLs.
+export const socialLinks = [
+  { name: 'Facebook',  handle: '', href: '#', icon: '/icons/social/facebook.svg' },
+  { name: 'Instagram', handle: '', href: '#', icon: '/icons/social/instagram.svg' },
+  { name: 'TikTok',    handle: '', href: '#', icon: '/icons/social/tiktok.svg' },
+  { name: 'LinkedIn',  handle: '', href: '#', icon: '/icons/social/linkedin.svg' },
+  { name: 'Reddit',    handle: '', href: '#', icon: '/icons/social/reddit.svg' },
+  { name: 'Snapchat',  handle: '', href: '#', icon: '/icons/social/snapchat.svg' },
+  { name: 'WhatsApp',  handle: '', href: '#', icon: '/icons/social/whatsapp.svg' },
+] as const;

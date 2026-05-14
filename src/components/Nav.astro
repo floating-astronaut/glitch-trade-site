@@ -1,6 +1,7 @@
 ---
 import { nav, site } from '~/lib/site';
 import Icon from './Icon.astro';
+import SocialIcons from './SocialIcons.astro';
 
 const { pathname } = Astro.url;
 ---
@@ -47,6 +48,10 @@ const { pathname } = Astro.url;
         );
       })}
     </nav>
+
+    <div class="hidden md:flex">
+      <SocialIcons size="sm" label="Header social profiles" />
+    </div>
 
     <a
       href="/#contact"
