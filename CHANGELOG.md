@@ -13,7 +13,12 @@ Body text (if present) shown as indented sub-bullets.
 
 ## 2026-05-14
 
-- **03:18 UTC** — auto-sync: 2026-05-14 03:18 UTC (`86b768d`) — 12 files
+- **03:24 UTC** — style: match grow's compact section + footer spacing (`247d3e3`) — 9 files
+    Replace py-24 md:py-32 / py-20 md:py-28 with py-8 md:py-10 lg:py-12
+    across section components. Drop mt-32 from <footer> and tighten the
+    inner grid from py-16 to py-10 md:py-12. Hero pt/pb shrunk to match
+    grow (pt-4 pb-10 md:pt-6 md:pb-12 lg:pt-8 lg:pb-14).
+- **03:18 UTC** — auto-sync: 2026-05-14 03:18 UTC (`cb49ab8`) — 13 files
         A	public/icons/stack/anthropic.svg
         A	public/icons/stack/binance.svg
         A	public/icons/stack/cloudflare.svg
