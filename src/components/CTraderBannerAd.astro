@@ -1,0 +1,68 @@
+---
+/**
+ * cTrader affiliate banner — impact.com (cTraderLtd partner program).
+ *
+ * Source: https://ctraderltd.pxf.io/c/7306601/3826414/43990
+ * Tracking pixel: https://imp.pxf.io/i/7306601/3826414/43990
+ *
+ * Renders a 320×50 sponsored banner that links to cTrader account signup
+ * via our affiliate referral. Pairs nicely below product CTAs that
+ * require buyers to have a cTrader account.
+ *
+ * Compliance:
+ *   - rel="sponsored noopener" — Google requires `sponsored` for paid
+ *     affiliate links; `noopener` is a security baseline for target=_blank
+ *     and target=_top
+ *   - The 1×1 invisible image is the affiliate impression pixel (network-
+ *     side counter); it stays visually hidden but must render to count.
+ *
+ * Usage:
+ *   <CTraderBannerAd />                 // default centered
+ *   <CTraderBannerAd align="left" />    // left-aligned
+ *   <CTraderBannerAd label="Open a cTrader account" />
+ */
+interface Props {
+  /** Layout alignment within its parent. Default 'center'. */
+  align?: 'left' | 'center' | 'right';
+  /** Visually-hidden label for screen readers. */
+  label?: string;
+  /** Extra Tailwind classes on the wrapping <aside>. */
+  class?: string;
+}
+
+const { align = 'center', label = 'Open a cTrader account (sponsored)', class: cls = '' } = Astro.props;
+
+const justify =
+  align === 'left' ? 'justify-start' :
+  align === 'right' ? 'justify-end' :
+  'justify-center';
+---
+
+<aside class:list={[`flex ${justify}`, cls]} aria-label={label}>
+  <a
+    rel="sponsored noopener"
+    href="https://ctraderltd.pxf.io/c/7306601/3826414/43990"
+    target="_top"
+    id="ctrader-aff-3826414"
+    class="inline-block leading-none"
+  >
+    <img
+      src="https://a.impactradius-go.com/display-ad/43990-3826414"
+      alt="Open a cTrader account"
+      width="320"
+      height="50"
+      loading="lazy"
+      decoding="async"
+      class="block max-w-full h-auto"
+    />
+  </a>
+  <!-- Affiliate impression pixel — visually hidden, must render to count. -->
+  <img
+    src="https://imp.pxf.io/i/7306601/3826414/43990"
+    width="0"
+    height="0"
+    aria-hidden="true"
+    alt=""
+    style="position:absolute;visibility:hidden;border:0;"
+  />
+</aside>
