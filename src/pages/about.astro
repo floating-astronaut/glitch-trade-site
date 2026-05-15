@@ -1,0 +1,54 @@
+---
+import Base from '~/layouts/Base.astro';
+import Icon from '~/components/Icon.astro';
+import { appLinks } from '~/lib/marketing';
+---
+
+<Base title="About" description="Why Glitch Trade is positioned as a platform for user-authored trading automation." pageType="AboutPage" ogSlug="about">
+  <section class="py-12 md:py-16 lg:py-20">
+    <div class="container-app max-w-4xl">
+      <p class="eyebrow"><Icon name="spark" size={14} /> Why Glitch Trade</p>
+      <h1 class="mt-4 max-w-[16ch]">We do not sell strategies. We host yours.</h1>
+      <p class="mt-6 text-fluid-lg text-muted">That sentence is the cleanest way to explain the category. The product is not an EA storefront, not a returns promise, and not a broker-native dashboard. It is the platform around your own trading automation: run it, test it, and track it.</p>
+    </div>
+  </section>
+
+  <section class="pb-12 md:pb-16">
+    <div class="container-app grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+      {[
+        ['What we are', 'A platform for user-authored trading automation, from simple quick rules to coded strategies.'],
+        ['What we are not', 'Not a signal vendor, not a guarantee machine, and not a hidden “subscription EA” pitch.'],
+        ['Why AI appears in the hero', 'Because some user-authored automation will use AI or ML logic, and the platform is designed to host that safely.'],
+        ['Why Firm Mode matters', 'Because challenge tracking is a real differentiator, but it should sit inside the wider product story.'],
+      ].map((item) => (
+        <article class="card p-6">
+          <p class="font-mono text-fluid-xs uppercase tracking-[0.18em] text-brand">{item[0]}</p>
+          <p class="mt-4 text-fluid-sm text-muted">{item[1]}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="pb-12 md:pb-16 lg:pb-20">
+    <div class="container-app grid gap-10 lg:grid-cols-[1fr_0.95fr] lg:items-start">
+      <div>
+        <p class="eyebrow"><Icon name="layers" size={14} /> Positioning map</p>
+        <h2 class="mt-4">Why the rev 4 framing is broader and stronger.</h2>
+        <p class="mt-5 text-fluid-base text-muted">The old prop-only framing capped the audience. The new framing keeps the same architecture but opens the top of funnel: casual swing traders can start with a quick rule, TradingView users can route alerts, prop traders can turn on Firm Mode, and quants can drop into code.</p>
+      </div>
+      <div class="card p-6 md:p-7">
+        <p class="font-mono text-fluid-xs uppercase tracking-[0.18em] text-brand">The moat in plain English</p>
+        <ul class="mt-5 space-y-3 text-fluid-sm text-fg/90">
+          <li><strong>Run:</strong> a clean deploy surface for any rule shape.</li>
+          <li><strong>Test:</strong> replay before money or challenge spend.</li>
+          <li><strong>Track:</strong> one dashboard instead of fragmented broker views.</li>
+          <li><strong>Firm Mode:</strong> challenge context when it matters, without narrowing the entire brand.</li>
+        </ul>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a href={appLinks.signup} class="btn btn-primary" data-cta="about-start-free">Start free<Icon name="arrow-up-right" size={16} /></a>
+          <a href={appLinks.quick} class="btn btn-ghost" data-cta="about-quick-rule">Try a quick rule<Icon name="arrow-up-right" size={16} /></a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

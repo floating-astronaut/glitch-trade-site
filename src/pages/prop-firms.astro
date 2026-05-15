@@ -1,0 +1,48 @@
+---
+import Base from '~/layouts/Base.astro';
+import Icon from '~/components/Icon.astro';
+import { appLinks, firms } from '~/lib/marketing';
+---
+
+<Base title="Firm Mode" description="Prop-firm-aware pre-flight and tracking across FundingPips, FTMO, MFF, Apex, and The5ers." pageType="WebPage" ogSlug="prop-firms">
+  <section class="py-12 md:py-16 lg:py-20">
+    <div class="container-app grid gap-10 lg:grid-cols-[1fr_0.95fr] lg:items-start">
+      <div>
+        <p class="eyebrow"><Icon name="shield" size={14} /> Firm Mode</p>
+        <h1 class="mt-4 max-w-[16ch]">Pre-flight challenge rules before you spend real challenge money.</h1>
+        <p class="mt-6 max-w-[62ch] text-fluid-lg text-muted">Prop-firm framing is a feature tier now, not the whole site. When a trader does need it, Firm Mode is where Glitch Trade becomes unusually strong: breach gauges, payout countdowns, and clearer rule context across the five firms below.</p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href={appLinks.signup} class="btn btn-primary" data-cta="prop-start-free">Pre-flight on Glitch Trade<Icon name="arrow-up-right" size={16} /></a>
+          <a href={appLinks.quick} class="btn btn-ghost" data-cta="prop-quick-rule">Try a quick rule first<Icon name="arrow-up-right" size={16} /></a>
+        </div>
+      </div>
+
+      <div class="card p-6 md:p-7">
+        <p class="font-mono text-fluid-xs uppercase tracking-[0.18em] text-brand">How it maps to the product</p>
+        <ol class="mt-5 grid gap-4 text-fluid-sm text-fg/90">
+          <li><strong>1. Run:</strong> create the rule you actually want to trade.</li>
+          <li><strong>2. Test:</strong> replay it against historical bars with the relevant firm guardrails in view.</li>
+          <li><strong>3. Track:</strong> keep breach distance and payout timing visible once the challenge is live.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="pb-12 md:pb-16 lg:pb-20">
+    <div class="container-app grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+      {firms.map((firm) => (
+        <article class="card p-6">
+          <h2 class="text-fluid-2xl">{firm.name}</h2>
+          <ul class="mt-4 space-y-2 text-fluid-sm text-muted">
+            {firm.rules.map((rule) => <li class="flex items-start gap-2"><span class="mt-[5px] size-1.5 rounded-full bg-brand"></span><span>{rule}</span></li>)}
+          </ul>
+          <p class="mt-4 text-fluid-sm text-subtle">{firm.note}</p>
+          <a href={appLinks.signup} class="mt-5 inline-flex items-center gap-2 text-fluid-sm text-brand hover:text-electric" data-cta={`firm-${firm.name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`}>
+            Pre-flight on Glitch Trade
+            <Icon name="arrow-up-right" size={14} />
+          </a>
+        </article>
+      ))}
+    </div>
+  </section>
+</Base>

@@ -1,88 +1,29 @@
 ---
 import Icon from '~/components/Icon.astro';
-
-// Service set adapted from legacy "How It Works" + "Key Features" blocks.
-// Each block describes a capability the legacy site already advertised.
-const services = [
-  {
-    icon: 'cpu' as const,
-    title: '9-Model Ensemble — You Consume the Output',
-    blurb:
-      'Nine specialized models analyze every ticker in parallel — trend, mean-reversion, momentum, ML, multi-TF, volume, session, sentiment — then a weighted aggregator consolidates nine sub-scores into a single long / short / hold read. You consume the output; you decide whether to act.',
-    bullets: [
-      'Confidence thresholds suppress low-conviction noise in the feed',
-      'Multi-timeframe confluence (1m, 5m, 1h, 4h) exposed in the output',
-      'LLM-driven sentiment from news + social + Fear &amp; Greed, as a sub-score',
-    ],
-  },
-  {
-    icon: 'send' as const,
-    title: 'REST, Webhook &amp; Telegram Surfaces',
-    blurb:
-      'Consume the ensemble output however fits your stack — REST endpoints for programmatic pulls, webhooks for event-driven pipelines, or a Telegram surface for manual review. One tool, many ways to read it.',
-    bullets: [
-      'Sub-5-second latency from candle close to output availability',
-      'Query any ticker on demand; subscribe to a watchlist for streamed reads',
-      'Telegram is one output surface — not the product',
-    ],
-  },
-  {
-    icon: 'link' as const,
-    title: 'CCXT-Compatible — Plug Into Your Own Execution Stack',
-    blurb:
-      'The tools emit structured output (direction, confidence, volatility estimate, suggested bracket). You wire that into your own CCXT client — Binance, OKX, Bybit, KuCoin, Coinbase Advanced, Bitget, MEXC, Gate.io, Kraken, Bitfinex — and place every order yourself. We do not touch your exchange; we never execute on your behalf.',
-    bullets: [
-      'Reference CCXT adapters provided; production wiring is yours',
-      'No API keys ever leave your infrastructure to reach us',
-      'You own the order flow, the risk parameters, and the fills',
-    ],
-  },
-  {
-    icon: 'shield' as const,
-    title: 'Paper-First Harness',
-    blurb:
-      'A built-in backtest + paper harness lets the operator replay the ensemble\'s output against historical and testnet tapes before wiring it to a live book. Validate the tool\'s behavior with zero real-money exposure, then decide when — and whether — to go live on your own infrastructure.',
-    bullets: [
-      'Walk-forward, fee-inclusive backtest harness bundled with the tools',
-      'Testnet/paper replay of identical ensemble logic before live wiring',
-      'Sizing, gates, and live deployment remain the operator\'s call',
-    ],
-  },
-];
+import { personas } from '~/lib/marketing';
 ---
 
-<section id="services" class="py-8 md:py-10 lg:py-12">
+<section id="personas" class="py-12 md:py-16 lg:py-20 border-y border-border/40 bg-surface/28">
   <div class="container-app">
-    <div class="max-w-2xl reveal">
-      <p class="eyebrow"><Icon name="layers" size={14} /> What's in the toolkit</p>
-      <h2 class="mt-4">One ensemble. Four tools. The operator runs the book.</h2>
-      <p class="mt-5 text-fluid-lg text-muted">
-        Analysis, consumption surfaces, execution compatibility, and a paper
-        harness — all one coherent toolkit. The output you evaluate in paper is
-        the same output you'll see in production. What you do with it is up to you.
+    <div class="max-w-3xl reveal">
+      <p class="eyebrow"><Icon name="target" size={14} /> Built for a spectrum</p>
+      <h2 class="mt-4">The audience is broader now on purpose.</h2>
+      <p class="mt-5 max-w-[60ch] text-fluid-lg text-muted">
+        The old site read like a niche prop-firm product. The locked rev 4 positioning is wider: a simple rule, a webhook trader, a prop challenge operator, and a quant can all land on the same platform and use different depths of the same system.
       </p>
     </div>
 
-    <ul class="mt-14 grid gap-5 md:grid-cols-2" role="list">
-      {services.map((s) => (
-        <li class="card p-6 md:p-8 reveal group">
-          <div class="flex items-center gap-3">
-            <span class="inline-flex size-10 items-center justify-center rounded-md bg-brand/10 text-brand border border-brand/20">
-              <Icon name={s.icon} size={20} />
-            </span>
-            <h3 class="text-fluid-xl">{s.title}</h3>
+    <div class="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+      {personas.map((persona) => (
+        <article class="card reveal h-full p-6">
+          <p class="font-mono text-fluid-xs uppercase tracking-[0.18em] text-brand">Persona</p>
+          <h3 class="mt-4 text-fluid-xl">{persona.name}</h3>
+          <p class="mt-4 text-fluid-sm text-fg/90">{persona.pain}</p>
+          <div class="mt-5 rounded-xl border border-border/60 bg-bg/60 p-4 text-fluid-xs text-subtle">
+            {persona.fit}
           </div>
-          <p class="mt-4 text-muted text-fluid-sm" set:html={s.blurb}></p>
-          <ul class="mt-5 space-y-2 text-fluid-sm" role="list">
-            {s.bullets.map((b) => (
-              <li class="flex items-start gap-2">
-                <span class="mt-[3px] text-brand"><Icon name="check" size={14} /></span>
-                <span class="text-fg/90" set:html={b}></span>
-              </li>
-            ))}
-          </ul>
-        </li>
+        </article>
       ))}
-    </ul>
+    </div>
   </div>
 </section>

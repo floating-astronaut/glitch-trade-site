@@ -13,7 +13,8 @@ Body text (if present) shown as indented sub-bullets.
 
 ## 2026-05-15
 
-- **21:48 UTC** — auto-sync: 2026-05-15 21:48 UTC (`26f8051`) — 2 files
+- **21:54 UTC** — Marketing copy: rev 4 positioning refresh (`61359ee`) — 23 files
+- **21:48 UTC** — auto-sync: 2026-05-15 21:48 UTC (`e06cdda`) — 3 files
         M	package-lock.json
         M	package.json
 - **21:33 UTC** — footer: mount cTrader affiliate banner (`480640c`) — 2 files

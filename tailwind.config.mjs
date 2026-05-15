@@ -4,8 +4,6 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Tokens pull from CSS variables defined in src/styles/tokens.css.
-        // This lets a future light theme flip without touching the config.
         bg: 'rgb(var(--color-bg) / <alpha-value>)',
         surface: 'rgb(var(--color-surface) / <alpha-value>)',
         'surface-2': 'rgb(var(--color-surface-2) / <alpha-value>)',
@@ -23,15 +21,14 @@ export default {
       },
       fontFamily: {
         sans: ['"Inter Tight Variable"', 'Inter Tight', 'system-ui', 'sans-serif'],
-        mono: ['"Geist Mono"', 'ui-monospace', 'SFMono-Regular', 'monospace'],
+        mono: ['"JetBrains Mono"', '"Geist Mono"', 'ui-monospace', 'SFMono-Regular', 'monospace'],
       },
       fontSize: {
-        // Fluid type. Pair with CSS custom properties for overrides.
-        'fluid-xs':  'clamp(0.75rem, 0.72rem + 0.15vw, 0.8125rem)',
-        'fluid-sm':  'clamp(0.875rem, 0.84rem + 0.17vw, 0.9375rem)',
-        'fluid-base':'clamp(1rem, 0.96rem + 0.2vw, 1.0625rem)',
-        'fluid-lg':  'clamp(1.125rem, 1.06rem + 0.3vw, 1.25rem)',
-        'fluid-xl':  'clamp(1.25rem, 1.15rem + 0.5vw, 1.5rem)',
+        'fluid-xs': 'clamp(0.75rem, 0.72rem + 0.15vw, 0.8125rem)',
+        'fluid-sm': 'clamp(0.875rem, 0.84rem + 0.17vw, 0.9375rem)',
+        'fluid-base': 'clamp(1rem, 0.96rem + 0.2vw, 1.0625rem)',
+        'fluid-lg': 'clamp(1.125rem, 1.06rem + 0.3vw, 1.25rem)',
+        'fluid-xl': 'clamp(1.25rem, 1.15rem + 0.5vw, 1.5rem)',
         'fluid-2xl': 'clamp(1.5rem, 1.3rem + 1vw, 2rem)',
         'fluid-3xl': 'clamp(1.875rem, 1.55rem + 1.6vw, 2.75rem)',
         'fluid-4xl': 'clamp(2.25rem, 1.75rem + 2.5vw, 3.75rem)',
@@ -51,7 +48,7 @@ export default {
         'inset-border': 'inset 0 0 0 1px rgb(var(--color-border) / 0.6)',
       },
       maxWidth: {
-        'container': 'var(--container-max)',
+        container: 'var(--container-max)',
         'prose-tight': '62ch',
       },
       transitionTimingFunction: {

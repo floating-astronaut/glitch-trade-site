@@ -1,41 +1,32 @@
 ---
 import Icon from '~/components/Icon.astro';
-import ContactForm from '~/components/ContactForm.astro';
-import { site } from '~/lib/site';
+import { appLinks } from '~/lib/marketing';
 ---
 
-<section id="contact" class="py-8 md:py-10 lg:py-12 relative">
-  <div aria-hidden="true" class="pointer-events-none absolute inset-0 -z-10 mask-fade-b">
-    <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brand/40 to-transparent"></div>
-  </div>
+<section id="contact" class="py-12 md:py-16 lg:py-20">
+  <div class="container-app">
+    <div class="card reveal overflow-hidden border-brand/30 bg-[linear-gradient(180deg,rgb(var(--color-surface-2)/0.7),rgb(var(--color-bg)/0.9))] p-8 md:p-12 lg:p-16">
+      <div class="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+        <div>
+          <p class="eyebrow"><Icon name="send" size={14} /> Start in the app</p>
+          <h2 class="mt-4">The marketing page should end at the right next step.</h2>
+          <p class="mt-5 max-w-[60ch] text-fluid-lg text-muted">
+            Open the app if you want to start free. Open the quick route if you already have a trade idea. That maps directly to the locked positioning: run it, test it, track it.
+          </p>
+        </div>
 
-  <div class="container-app grid md:grid-cols-12 gap-10">
-    <div class="md:col-span-5 reveal">
-      <p class="eyebrow"><Icon name="send" size={14} /> Request a trial key</p>
-      <h2 class="mt-4">Seven days. No card. Full toolkit.</h2>
-      <p class="mt-5 text-fluid-lg text-muted">
-        Drop your details and we'll issue a trial key within one business day.
-        Prefer email? <a href={`mailto:${site.contactEmail}`} class="text-brand underline decoration-brand/40 hover:decoration-brand">{site.contactEmail}</a>.
-      </p>
-
-      <ul class="mt-8 space-y-3 text-fluid-sm text-muted">
-        <li class="flex items-start gap-2">
-          <span class="mt-[3px] text-brand"><Icon name="check" size={14} /></span>
-          We ship tools; you run your book. No managed-service retainer, no advisory relationship.
-        </li>
-        <li class="flex items-start gap-2">
-          <span class="mt-[3px] text-brand"><Icon name="check" size={14} /></span>
-          Your exchange keys and capital stay on your own infrastructure — we never touch them.
-        </li>
-        <li class="flex items-start gap-2">
-          <span class="mt-[3px] text-brand"><Icon name="check" size={14} /></span>
-          30-day evaluation window with a refund if the tools didn't fit your desk.
-        </li>
-      </ul>
-    </div>
-
-    <div class="md:col-span-7 reveal">
-      <ContactForm />
+        <div class="grid gap-3 lg:justify-self-end lg:min-w-[20rem]">
+          <a href={appLinks.signup} class="btn btn-primary justify-center" data-cta="final-start-free">
+            Start free in the app
+            <Icon name="arrow-up-right" size={16} />
+          </a>
+          <a href={appLinks.quick} class="btn btn-ghost justify-center" data-cta="final-quick-rule">
+            Try a quick rule
+            <Icon name="arrow-up-right" size={16} />
+          </a>
+          <p class="text-center text-fluid-xs text-subtle">trade-app.glitchexecutor.com</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
