@@ -13,7 +13,18 @@ Body text (if present) shown as indented sub-bullets.
 
 ## 2026-05-15
 
-- **03:33 UTC** — auto-sync: 2026-05-15 03:33 UTC (`561b53e`) — 2 files
+- **21:18 UTC** — footer: mount cTrader affiliate banner (`aa31a21`) — 2 files
+    Adds a 320×50 sponsored banner above the copyright row, linking through
+    our impact.com partner ID. Pairs with the new
+    src/components/CTraderBannerAd.astro component (auto-synced earlier
+    this turn) which encapsulates the link, alt text, lazy-loading,
+    rel="sponsored noopener" Google AdSense compliance, and the invisible
+    impression pixel.
+    Why footer: visible on every page without competing with the primary
+    CTAs (Hero / Pilot / Contact). The "We use cTrader to run our engine"
+    caption underneath positions the link as honest disclosure rather than
+    ad placement, which matches Tejas's editorial voice.
+- **03:33 UTC** — auto-sync: 2026-05-15 03:33 UTC (`3038758`) — 3 files
         A	src/components/CTraderBannerAd.astro
         M	src/components/Footer.astro
 - **03:18 UTC** — fix(social): black-fill X + Discord SVGs so invert flips them to white (`7086439`) — 3 files
