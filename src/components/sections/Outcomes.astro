@@ -1,66 +1,29 @@
 ---
 import Icon from '~/components/Icon.astro';
-
-// Honest capability stats (not performance claims). All four lifted verbatim
-// from the legacy site's "stats bar" above the fold — every number describes
-// what the system *does*, not what returns it produced. That keeps us clear
-// of securities-advertising rules.
-const outcomes = [
-  {
-    icon: 'cpu' as const,
-    metric: '9',
-    label: 'Specialized models',
-    context: 'Trend, mean-reversion, momentum, ML predictor, multi-TF, volume, session, sentiment, aggregator',
-  },
-  {
-    icon: 'link' as const,
-    metric: '100+',
-    label: 'CCXT-compatible venues',
-    context: 'Wire the tool output into your own CCXT client — Binance, OKX, Bybit, KuCoin, Coinbase, Bitget, MEXC, Gate.io, Kraken +',
-  },
-  {
-    icon: 'bolt' as const,
-    metric: '< 5s',
-    label: 'Candle → tool output',
-    context: 'From candle close to ensemble consensus available on your surface — the operator decides what to do with it',
-  },
-  {
-    icon: 'shield' as const,
-    metric: '24/7',
-    label: 'Continuous tool availability',
-    context: 'Ensemble only emits above a confidence threshold — low-conviction setups are suppressed from the output stream',
-  },
-];
+import { verbs } from '~/lib/marketing';
 ---
 
-<section id="outcomes" class="py-8 md:py-10 lg:py-12 border-y border-border/40 bg-surface/30">
+<section id="platform" class="py-12 md:py-16 lg:py-20">
   <div class="container-app">
-    <div class="max-w-2xl reveal">
-      <p class="eyebrow"><Icon name="bolt" size={14} /> What the tools produce</p>
-      <h2 class="mt-4">Nine lenses on every candle. One consolidated read for the operator.</h2>
-      <p class="mt-4 text-fluid-base text-muted">
-        Each model specializes in a different market read. They vote. The
-        aggregator consolidates nine sub-scores into one read you can interpret —
-        not nine conflicting indicators. Every execution decision stays with you.
+    <div class="max-w-3xl reveal">
+      <p class="eyebrow"><Icon name="layers" size={14} /> The product in three verbs</p>
+      <h2 class="mt-4">Run first, test second, track continuously.</h2>
+      <p class="mt-5 max-w-[62ch] text-fluid-lg text-muted">
+        The order matters. First you get the automation running. Then you test it on past candles. Then you keep the live account view clean enough to act on. Firm Mode sits inside that loop as a differentiator, not as the whole story.
       </p>
     </div>
 
-    <ul class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4" role="list">
-      {outcomes.map((o) => (
-        <li class="card p-6 reveal">
-          <span class="inline-flex size-9 items-center justify-center rounded-md bg-brand/10 text-brand border border-brand/20">
-            <Icon name={o.icon} size={18} />
-          </span>
-          <div class="mt-4 font-mono text-fluid-3xl text-brand leading-none">{o.metric}</div>
-          <div class="mt-2 text-fluid-sm font-medium">{o.label}</div>
-          <p class="mt-3 text-fluid-xs text-subtle leading-relaxed">{o.context}</p>
-        </li>
+    <div class="mt-10 grid gap-5 lg:grid-cols-3">
+      {verbs.map((verb, index) => (
+        <article class="card reveal p-6 md:p-7" style={`transition-delay:${index * 80}ms`}>
+          <div class="inline-flex items-center gap-3 rounded-full border border-brand/25 bg-brand/10 px-3 py-1 text-brand">
+            <span class="font-mono text-fluid-xs uppercase tracking-[0.18em]">{verb.name}</span>
+          </div>
+          <h3 class="mt-5">{verb.title}</h3>
+          <p class="mt-4 text-fluid-sm text-muted">{verb.detail}</p>
+          <p class="mt-4 rounded-xl border border-border/60 bg-bg/60 p-4 text-fluid-xs text-subtle">{verb.example}</p>
+        </article>
       ))}
-    </ul>
-
-    <p class="mt-10 text-fluid-xs text-subtle max-w-2xl reveal">
-      Trading involves risk. Nothing on this page is financial advice.
-      Past performance of any model or strategy does not guarantee future results.
-    </p>
+    </div>
   </div>
 </section>

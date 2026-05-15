@@ -1,63 +1,40 @@
 ---
 import Icon from '~/components/Icon.astro';
-import { Image } from 'astro:assets';
-import caseImage from '~/assets/brand/generated/case-spotlight.png';
+import { firms, appLinks } from '~/lib/marketing';
 ---
 
-<section id="case-spotlight" class="py-8 md:py-10 lg:py-12 bg-surface/40 border-y border-border/60">
-  <div class="container-app grid md:grid-cols-12 gap-10 items-center">
-    <div class="md:col-span-5 reveal">
-      <p class="eyebrow"><Icon name="chart" size={14} /> Tool behavior · simulated</p>
-      <h2 class="mt-4">BTC/USDT <span class="gradient-text">walk-forward backtest.</span></h2>
-      <p class="mt-5 text-muted text-fluid-lg">
-        Twelve-month walk-forward replay of the ensemble's output on
-        <span class="font-mono text-fg">BTC/USDT</span> 5-minute candles using
-        the production confidence gate. Below the gate, the aggregator emits
-        hold; above it, it emits long/short reads with a suggested
-        stop-loss and take-profit. This is what the <em class="not-italic text-fg">tool</em>
-        produced on historical tape — not a prediction of your PnL.
+<section id="firm-mode" class="py-12 md:py-16 lg:py-20">
+  <div class="container-app grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
+    <div class="reveal">
+      <p class="eyebrow"><Icon name="shield" size={14} /> Firm Mode</p>
+      <h2 class="mt-4">Prop-firm tracking is included, but it is not the whole pitch.</h2>
+      <p class="mt-5 text-fluid-lg text-muted">
+        This is the strongest differentiator because almost nobody treats prop-firm-aware tracking as a first-class product surface. But the page should still lead with the wider Run / Test / Track loop.
       </p>
-
-      <dl class="mt-8 grid grid-cols-3 gap-4">
-        <div class="card p-4">
-          <dt class="text-fluid-xs uppercase tracking-wider text-subtle">Win rate</dt>
-          <dd class="mt-1 font-mono text-fluid-2xl text-brand">63%</dd>
-        </div>
-        <div class="card p-4">
-          <dt class="text-fluid-xs uppercase tracking-wider text-subtle">Sharpe</dt>
-          <dd class="mt-1 font-mono text-fluid-2xl text-fg">1.4</dd>
-        </div>
-        <div class="card p-4">
-          <dt class="text-fluid-xs uppercase tracking-wider text-subtle">Max DD</dt>
-          <dd class="mt-1 font-mono text-fluid-2xl text-fg">11%</dd>
-        </div>
-      </dl>
-
-      <p class="mt-4 text-fluid-xs text-subtle max-w-prose-tight">
-        Hypothetical, fee-inclusive, walk-forward simulation of tool output —
-        <em class="not-italic text-fg">not</em> live trading performance and
-        <em class="not-italic text-fg">not</em> a prediction of any operator's
-        PnL. Backtests have inherent limitations and do not guarantee future
-        results. The operator, not the tool, decides every real trade. Read
-        the full writeup for the exact assumptions we used.
+      <p class="mt-4 text-fluid-base text-subtle">
+        When you do need it, Firm Mode adds breach gauges, payout countdowns, and rule-aware pre-flight context for the five challenge environments below.
       </p>
-
-      <a href="/case-studies/btc-ensemble-backtest" class="btn btn-secondary mt-8">
-        Read the full writeup
-        <Icon name="arrow-up-right" size={16} />
-      </a>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a href="/prop-firms" class="inline-flex items-center gap-2 text-fluid-sm text-brand hover:text-electric">See Firm Mode detail <Icon name="arrow-up-right" size={14} /></a>
+        <a href={appLinks.signup} class="btn btn-primary" data-cta="firm-mode-start-free">
+          Pre-flight in the app
+          <Icon name="arrow-up-right" size={16} />
+        </a>
+      </div>
     </div>
 
-    <div class="md:col-span-7 reveal">
-      {/* Equity-curve chart goes here. Keep 16:10 for parity with analytics exports. */}
-      <Image
-        src={caseImage}
-        alt="Simulated equity curve for the 9-model ensemble on BTC/USDT 5-minute candles over 12 months"
-        widths={[640, 960, 1280]}
-        sizes="(min-width: 768px) 640px, 100vw"
-        loading="lazy"
-        class="rounded-xl w-full h-auto"
-      />
+    <div class="grid gap-4 sm:grid-cols-2 reveal">
+      {firms.map((firm) => (
+        <article class="card p-5">
+          <h3 class="text-fluid-xl">{firm.name}</h3>
+          <ul class="mt-4 space-y-2 text-fluid-sm text-muted">
+            {firm.rules.map((rule) => (
+              <li class="flex items-start gap-2"><span class="mt-[5px] size-1.5 rounded-full bg-brand"></span><span>{rule}</span></li>
+            ))}
+          </ul>
+          <p class="mt-4 text-fluid-xs text-subtle">{firm.note}</p>
+        </article>
+      ))}
     </div>
   </div>
 </section>

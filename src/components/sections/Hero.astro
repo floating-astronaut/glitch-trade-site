@@ -1,76 +1,73 @@
 ---
 import Icon from '~/components/Icon.astro';
-import { Image } from 'astro:assets';
-import heroImage from '~/assets/brand/generated/hero.png';
-import Mascot from '~/components/Mascot.astro';
+import { appLinks, hero } from '~/lib/marketing';
 ---
 
-<section class="relative pt-4 pb-10 md:pt-6 md:pb-12 lg:pt-8 lg:pb-14 overflow-hidden">
-  {/* Ambient glow. Purely decorative; no layout impact. */}
+<section class="relative overflow-hidden pt-8 pb-12 md:pt-12 md:pb-16 lg:pt-16 lg:pb-20">
   <div aria-hidden="true" class="pointer-events-none absolute inset-0 -z-10">
-    <div class="absolute -top-40 left-1/2 -translate-x-1/2 h-[40rem] w-[60rem] max-w-[90vw] rounded-full
-                bg-[radial-gradient(circle_at_center,rgb(var(--color-brand)/0.18),transparent_60%)] blur-2xl"></div>
-    <div class="absolute top-40 right-[-10rem] h-[30rem] w-[30rem] rounded-full
-                bg-[radial-gradient(circle_at_center,rgb(var(--color-electric)/0.14),transparent_60%)] blur-2xl"></div>
+    <div class="absolute left-1/2 top-[-14rem] h-[38rem] w-[64rem] max-w-[100vw] -translate-x-1/2 rounded-full bg-[radial-gradient(circle_at_center,rgb(var(--color-brand)/0.16),transparent_60%)] blur-3xl"></div>
+    <div class="absolute right-[-8rem] top-20 h-[24rem] w-[24rem] rounded-full bg-[radial-gradient(circle_at_center,rgb(var(--color-accent)/0.14),transparent_62%)] blur-3xl"></div>
   </div>
 
-  <div class="container-app grid md:grid-cols-12 gap-10 items-center">
-    <div class="md:col-span-7 reveal">
-      <p class="eyebrow">
-        <Icon name="spark" size={14} />
-        AI Trading Tools · Licensed to Operators
-      </p>
-      <h1 class="mt-5">
-        One indicator isn't an edge.<br/>
-        <span class="gradient-text">Nine models are.</span>
-      </h1>
-      <p class="mt-6 text-fluid-lg text-muted max-w-[56ch]">
-        Glitch Trade licenses a 9-model AI ensemble to trading operators who run
-        their own book. Plug our analysis, sentiment, and simulation tools into
-        your own data feed and execution stack — then decide every trade yourself.
-        We ship the tools; you run the desk.
+  <div class="container-app grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+    <div class="reveal">
+      <div class="inline-flex items-center gap-3 rounded-full border border-brand/30 bg-brand/10 px-3 py-1.5 text-brand">
+        <img src="/assets/brand/logo-256.png" alt="" width="20" height="20" class="h-5 w-5 object-contain" loading="eager" decoding="async" />
+        <span class="font-mono text-fluid-xs uppercase tracking-[0.18em]">Glitch Trade rev 4</span>
+      </div>
+
+      <h1 class="mt-6 max-w-[15ch]">Glitch Trade &mdash; the platform to run, test, and track AI trading automation.</h1>
+      <p class="mt-4 text-fluid-lg italic text-brand">Prop-firm challenge tracking included.</p>
+      <p class="mt-6 max-w-[60ch] text-fluid-lg text-muted">{hero.intro}</p>
+      <p class="mt-4 max-w-[60ch] text-fluid-base text-subtle">
+        Run a simple swing rule. Wire a TradingView alert into execution. Pre-flight a challenge setup. Open the code editor when you need full control. Same platform, broader audience.
       </p>
 
       <div class="mt-8 flex flex-wrap gap-3">
-        <a href="#contact" class="btn btn-primary">
-          Request a trial key
-          <Icon name="arrow-right" size={16} />
+        <a href={appLinks.signup} class="btn btn-primary" data-cta="hero-start-free">
+          Start free
+          <Icon name="arrow-up-right" size={16} />
         </a>
-        <a href="#services" class="btn btn-secondary">
-          See what's in the toolkit
+        <a href={appLinks.quick} class="btn btn-ghost" data-cta="hero-quick-rule">
+          Try a quick rule
           <Icon name="arrow-up-right" size={16} />
         </a>
       </div>
 
-      <dl class="mt-10 grid grid-cols-3 gap-4 max-w-md" aria-label="Core numbers">
-        <div>
-          <dt class="text-fluid-xs uppercase tracking-wider text-subtle">Models in ensemble</dt>
-          <dd class="mt-1 font-mono text-fluid-xl text-brand">9</dd>
-        </div>
-        <div>
-          <dt class="text-fluid-xs uppercase tracking-wider text-subtle">CCXT-compatible venues</dt>
-          <dd class="mt-1 font-mono text-fluid-xl text-brand">100+</dd>
-        </div>
-        <div>
-          <dt class="text-fluid-xs uppercase tracking-wider text-subtle">Candle → tool output</dt>
-          <dd class="mt-1 font-mono text-fluid-xl text-brand">&lt; 5s</dd>
-        </div>
-      </dl>
+      <div class="mt-8 flex flex-wrap gap-3 text-fluid-xs text-subtle">
+        <span class="rounded-full border border-border/70 bg-surface/60 px-3 py-1.5">Quick rule</span>
+        <span class="rounded-full border border-border/70 bg-surface/60 px-3 py-1.5">Visual builder</span>
+        <span class="rounded-full border border-border/70 bg-surface/60 px-3 py-1.5">Code editor</span>
+        <span class="rounded-full border border-border/70 bg-surface/60 px-3 py-1.5">Firm Mode</span>
+      </div>
     </div>
 
-    <div class="md:col-span-5 reveal">
-      {/* Product screenshot slot — replaces the legacy signal terminal. */}
-      <div class="relative">
-        <Image
-          src={heroImage}
-          alt="Glitch Trade ensemble output card showing model confidence scores across nine specialized models"
-          widths={[480, 768, 960]}
-          sizes="(min-width: 768px) 480px, 100vw"
-          loading="eager"
-          class="rounded-lg shadow-glow-brand w-full h-auto"
-        />
-        <div class="absolute -bottom-6 -left-6 hidden sm:block">
-          <Mascot size={72} priority alt="Glitch cobra mascot" />
+    <div class="reveal lg:justify-self-end">
+      <div class="card overflow-hidden border-brand/20 bg-[linear-gradient(180deg,rgb(var(--color-surface-2)/0.82),rgb(var(--color-bg)/0.88))] p-5 shadow-[0_24px_60px_-36px_rgba(0,0,0,0.9)]">
+        <div class="flex items-center justify-between gap-4 border-b border-border/60 pb-3">
+          <div>
+            <p class="eyebrow"><Icon name="code" size={14} /> live example</p>
+            <p class="mt-2 text-fluid-sm text-fg">Quick rule to Firm Mode</p>
+          </div>
+          <img src="/assets/brand/logo-512.png" alt="Snake glyph for Glitch Trade" width="48" height="48" class="h-12 w-12 object-contain" loading="eager" decoding="async" />
+        </div>
+
+        <div class="mt-4 grid gap-3">
+          <div class="rounded-xl border border-border/70 bg-bg/70 p-4">
+            <p class="font-mono text-fluid-xs uppercase tracking-[0.18em] text-subtle">Run</p>
+            <p class="mt-2 text-fluid-sm text-fg">buy BTCUSD at 80000, sell at 81000</p>
+            <p class="mt-2 text-fluid-xs text-subtle">Quick-rule parser turns plain English into a live automation draft.</p>
+          </div>
+          <div class="rounded-xl border border-border/70 bg-bg/70 p-4">
+            <p class="font-mono text-fluid-xs uppercase tracking-[0.18em] text-subtle">Test</p>
+            <p class="mt-2 text-fluid-sm text-fg">Historical bars + optional firm-rule guardrails</p>
+            <p class="mt-2 text-fluid-xs text-subtle">Backtest the exact setup before money or a prop challenge is on the line.</p>
+          </div>
+          <div class="rounded-xl border border-border/70 bg-brand/8 p-4">
+            <p class="font-mono text-fluid-xs uppercase tracking-[0.18em] text-brand">Track</p>
+            <p class="mt-2 text-fluid-sm text-fg">Universal dashboard with Firm Mode when you need it</p>
+            <p class="mt-2 text-fluid-xs text-subtle">One account view for casual trading, experiments, and challenge monitoring.</p>
+          </div>
         </div>
       </div>
     </div>

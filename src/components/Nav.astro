@@ -1,7 +1,7 @@
 ---
 import { nav, site } from '~/lib/site';
+import { appLinks } from '~/lib/marketing';
 import Icon from './Icon.astro';
-import SocialIcons from './SocialIcons.astro';
 
 const { pathname } = Astro.url;
 ---
@@ -10,59 +10,32 @@ const { pathname } = Astro.url;
 
 <header
   id="site-nav"
-  class="fixed top-0 inset-x-0 z-50 border-b border-border/60 bg-bg/70 backdrop-blur-xl"
+  class="fixed top-0 inset-x-0 z-50 border-b border-border/60 bg-bg/80 backdrop-blur-xl"
   style={`transition: background var(--dur) var(--ease-out-expo);`}
 >
-  <div class="container-app flex h-[var(--nav-h)] items-center justify-between">
-    <a
-      href="/"
-      class="flex items-center gap-2.5 font-semibold min-h-11"
-      aria-label={`${site.name} home`}
-    >
-      <img
-        src="/assets/brand/logo-256.png"
-        alt=""
-        width="36"
-        height="36"
-        class="w-9 h-9 object-contain"
-        loading="eager"
-        decoding="async"
-      />
-      <span class="text-fluid-base">
-        Glitch <span class="text-brand">Trade</span>
-      </span>
+  <div class="container-app flex h-[var(--nav-h)] items-center justify-between gap-4">
+    <a href="/" class="flex items-center gap-3 font-semibold min-h-11" aria-label={`${site.name} home`}>
+      <img src="/assets/brand/logo-256.png" alt="" width="36" height="36" class="h-9 w-9 object-contain" loading="eager" decoding="async" />
+      <span class="text-fluid-base">Glitch <span class="text-brand">Trade</span></span>
     </a>
 
-    <nav aria-label="Primary" class="hidden md:flex items-center gap-7 text-fluid-sm text-muted">
+    <nav aria-label="Primary" class="hidden md:flex items-center gap-6 text-fluid-sm text-muted">
       {nav.map((item) => {
         const bare = item.href.split('#')[0] || '/';
         const active = bare !== '/' && pathname.startsWith(bare);
         return (
-          <a
-            href={item.href}
-            class="relative hover:text-brand transition-colors"
-            aria-current={active ? 'page' : undefined}
-          >
+          <a href={item.href} class={`relative transition-colors ${active ? 'text-fg' : 'hover:text-brand'}`} aria-current={active ? 'page' : undefined}>
             {item.label}
           </a>
         );
       })}
     </nav>
 
-    <div class="hidden md:flex">
-      <SocialIcons size="sm" label="Header social profiles" />
-    </div>
-
-    <a
-      href="/#contact"
-      class="btn btn-ghost text-fluid-sm hidden md:inline-flex"
-      data-cta="nav-contact"
-    >
-      Book a call
+    <a href={appLinks.signup} class="btn btn-primary hidden md:inline-flex" data-cta="nav-start-free">
+      Start free
       <Icon name="arrow-up-right" size={16} />
     </a>
 
-    {/* Mobile hamburger — visible only below md breakpoint */}
     <button
       id="mobile-nav-toggle"
       type="button"
@@ -71,11 +44,7 @@ const { pathname } = Astro.url;
       aria-expanded="false"
       aria-controls="mobile-nav-drawer"
     >
-      <svg
-        width="24" height="24" viewBox="0 0 24 24" fill="none"
-        stroke="currentColor" stroke-width="2" stroke-linecap="round"
-        aria-hidden="true"
-      >
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
         <path data-ham-lines d="M4 7h16M4 12h16M4 17h16" />
         <path data-ham-x class="hidden" d="M6 6l12 12M6 18L18 6" />
       </svg>
@@ -83,10 +52,9 @@ const { pathname } = Astro.url;
   </div>
 </header>
 
-{/* Mobile drawer — sibling of <header>, positioned below it */}
 <div
   id="mobile-nav-drawer"
-  class="md:hidden fixed inset-x-0 bottom-0 z-40 hidden flex-col overscroll-contain"
+  class="md:hidden fixed inset-x-0 bottom-0 z-40 hidden flex-col overscroll-contain border-t border-border/60"
   style={`top: var(--nav-h); background: rgb(var(--color-bg) / 0.98); backdrop-filter: blur(20px);`}
   aria-hidden="true"
 >
@@ -95,25 +63,20 @@ const { pathname } = Astro.url;
       const bare = item.href.split('#')[0] || '/';
       const active = bare !== '/' && pathname.startsWith(bare);
       return (
-        <a
-          href={item.href}
-          class="flex items-center justify-between min-h-[56px] text-fluid-xl font-medium hover:text-brand transition-colors"
-          aria-current={active ? 'page' : undefined}
-          data-mobile-nav-link
-        >
+        <a href={item.href} class="flex items-center justify-between min-h-[56px] text-fluid-xl font-medium hover:text-brand transition-colors" aria-current={active ? 'page' : undefined} data-mobile-nav-link>
           <span>{item.label}</span>
           <Icon name="arrow-up-right" size={18} class="text-subtle" />
         </a>
       );
     })}
   </nav>
-  <div class="container-app mt-6 pb-8">
-    <a
-      href="/#contact"
-      class="btn btn-primary w-full justify-center"
-      data-mobile-nav-link
-    >
-      Book a call
+  <div class="container-app mt-6 grid gap-3 pb-8">
+    <a href={appLinks.signup} class="btn btn-primary w-full justify-center" data-mobile-nav-link>
+      Start free
+      <Icon name="arrow-up-right" size={16} />
+    </a>
+    <a href={appLinks.quick} class="btn btn-ghost w-full justify-center" data-mobile-nav-link>
+      Try a quick rule
       <Icon name="arrow-up-right" size={16} />
     </a>
   </div>
@@ -131,7 +94,7 @@ const { pathname } = Astro.url;
     drawer.classList.toggle('flex', open);
     document.body.classList.toggle('overflow-hidden', open);
     const lines = toggle.querySelector('[data-ham-lines]');
-    const x     = toggle.querySelector('[data-ham-x]');
+    const x = toggle.querySelector('[data-ham-x]');
     if (lines && x) {
       lines.classList.toggle('hidden', open);
       x.classList.toggle('hidden', !open);
@@ -149,19 +112,16 @@ const { pathname } = Astro.url;
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') setDrawer(false);
     });
-    // Close on viewport crossing md breakpoint — Astro's View Transitions
-    // can leave drawer state stale otherwise.
     const mq = window.matchMedia('(min-width: 768px)');
     mq.addEventListener('change', (e) => {
       if (e.matches) setDrawer(false);
     });
   }
 
-  // Elevate nav shadow once scrolled past hero.
   const nav = document.getElementById('site-nav');
   if (nav) {
     const onScroll = () => {
-      nav.classList.toggle('shadow-[0_8px_24px_-12px_rgba(0,0,0,0.6)]', window.scrollY > 32);
+      nav.classList.toggle('shadow-[0_12px_32px_-18px_rgba(0,0,0,0.85)]', window.scrollY > 24);
     };
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });

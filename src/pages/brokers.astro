@@ -1,0 +1,41 @@
+---
+import Base from '~/layouts/Base.astro';
+import Icon from '~/components/Icon.astro';
+import { appLinks, brokers } from '~/lib/marketing';
+---
+
+<Base title="Brokers" description="Supported broker paths for Glitch Trade and the trust model behind each one." pageType="WebPage" ogSlug="brokers">
+  <section class="py-12 md:py-16 lg:py-20">
+    <div class="container-app">
+      <p class="eyebrow"><Icon name="link" size={14} /> Broker support</p>
+      <h1 class="mt-4 max-w-[16ch]">Trust-first broker connect copy, not vague integration bragging.</h1>
+      <p class="mt-6 max-w-[64ch] text-fluid-lg text-muted">The broker section has one job: explain how Glitch Trade connects, what permissions are involved, and why the user should trust the model. The point is clarity, not buzzwords.</p>
+      <div class="mt-6 rounded-2xl border border-brand/25 bg-brand/8 p-5 text-fluid-sm text-fg/90">
+        <strong>Trust model:</strong> We never trade on your behalf. cTrader uses read-only OAuth. Other brokers: password exchanged once for a refresh token, then discarded.
+      </div>
+    </div>
+  </section>
+
+  <section class="pb-12 md:pb-16 lg:pb-20">
+    <div class="container-app grid gap-5 lg:grid-cols-2">
+      {brokers.map((broker) => (
+        <article class="card p-6 md:p-7">
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <p class="font-mono text-fluid-xs uppercase tracking-[0.18em] text-brand">{broker.short}</p>
+              <h2 class="mt-3 text-fluid-2xl">{broker.name}</h2>
+            </div>
+            <span class="inline-flex items-center rounded-full border border-border/60 bg-bg/60 px-3 py-1 text-fluid-xs text-subtle">Supported path</span>
+          </div>
+          <p class="mt-5 text-fluid-base text-muted">{broker.trust}</p>
+          <p class="mt-4 text-fluid-sm text-subtle">{broker.detail}</p>
+        </article>
+      ))}
+    </div>
+
+    <div class="container-app mt-10 flex flex-wrap gap-3">
+      <a href={appLinks.signup} class="btn btn-primary" data-cta="brokers-start-free">Start free<Icon name="arrow-up-right" size={16} /></a>
+      <a href={appLinks.quick} class="btn btn-ghost" data-cta="brokers-quick-rule">Try a quick rule<Icon name="arrow-up-right" size={16} /></a>
+    </div>
+  </section>
+</Base>
