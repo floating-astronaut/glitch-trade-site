@@ -1,67 +1,71 @@
 ---
 import { legalNav, site } from '~/lib/site';
+import { appLinks, brokers } from '~/lib/marketing';
 import Icon from './Icon.astro';
 import SocialIcons from './SocialIcons.astro';
-import CTraderBannerAd from './CTraderBannerAd.astro';
 
 const year = new Date().getFullYear();
 ---
 
 <footer class="border-t border-border/60 bg-bg">
-  <div class="container-app py-10 md:py-12 grid gap-10 md:grid-cols-4">
-    <div class="md:col-span-2">
-      <div class="flex items-center gap-2.5 mb-4">
-        <img src="/assets/brand/logo-256.png" alt="" width="32" height="32" class="w-8 h-8 object-contain" loading="lazy" />
+  <div class="container-app py-10 md:py-12 grid gap-10 md:grid-cols-[1.3fr_0.7fr_0.7fr]">
+    <div>
+      <div class="flex items-center gap-3 mb-4">
+        <img src="/assets/brand/logo-256.png" alt="" width="32" height="32" class="h-8 w-8 object-contain" loading="lazy" />
         <span class="font-semibold">Glitch <span class="text-brand">Trade</span></span>
       </div>
-      <p class="text-muted max-w-prose-tight text-fluid-sm">
-        {site.description}
+      <p class="text-muted max-w-prose-tight text-fluid-sm">{site.description}</p>
+      <p class="mt-4 text-fluid-xs text-subtle max-w-prose-tight">
+        We do not sell strategies. We host yours. Glitch Trade is tooling for running, testing, and tracking trading automation. It does not promise returns, alpha, or challenge passes.
       </p>
-      <p class="text-subtle text-fluid-xs mt-4">
-        A <a href="https://glitchexecutor.com" class="underline decoration-border hover:decoration-brand">{site.parent}</a> product.
-      </p>
-      <p class="text-subtle text-fluid-xs mt-3 max-w-prose-tight">
-        Trading involves risk. Tool output is information, not financial advice.
-        The operator decides every trade.
+      <p class="mt-4 text-fluid-xs text-subtle max-w-prose-tight">
+        We never trade on your behalf. cTrader uses read-only OAuth. Other brokers: password exchanged once for a refresh token, then discarded.
       </p>
       <div class="mt-5"><SocialIcons label="Footer social profiles" /></div>
     </div>
 
-    <nav aria-label="Footer primary" class="text-fluid-sm">
-      <h3 class="eyebrow mb-4">Product</h3>
+    <nav aria-label="Footer product" class="text-fluid-sm">
+      <h3 class="eyebrow mb-4">Explore</h3>
       <ul class="space-y-2 text-muted">
-        <li><a class="flex items-center min-h-11 hover:text-fg" href="/#services">Toolkit</a></li>
-        <li><a class="flex items-center min-h-11 hover:text-fg" href="/case-studies">Case studies</a></li>
-        <li><a class="flex items-center min-h-11 hover:text-fg" href="/#stack">Tech stack</a></li>
-        <li><a class="flex items-center min-h-11 hover:text-fg" href="/#contact">Request trial key</a></li>
+        <li><a class="flex items-center min-h-11 hover:text-fg" href="/pricing">Pricing</a></li>
+        <li><a class="flex items-center min-h-11 hover:text-fg" href="/brokers">Brokers</a></li>
+        <li><a class="flex items-center min-h-11 hover:text-fg" href="/prop-firms">Firm Mode</a></li>
+        <li><a class="flex items-center min-h-11 hover:text-fg" href="/about">Why Glitch Trade</a></li>
+        <li><a class="flex items-center min-h-11 hover:text-fg" href="/blog">Blog</a></li>
       </ul>
     </nav>
 
-    <nav aria-label="Footer legal" class="text-fluid-sm">
-      <h3 class="eyebrow mb-4">Legal</h3>
-      <ul class="space-y-2 text-muted">
-        {legalNav.map((l) => (
-          <li><a class="flex items-center min-h-11 hover:text-fg" href={l.href}>{l.label}</a></li>
+    <div class="text-fluid-sm">
+      <h3 class="eyebrow mb-4">Start in the app</h3>
+      <div class="grid gap-3">
+        <a href={appLinks.signup} class="btn btn-primary justify-center" data-cta="footer-start-free">
+          Start free
+          <Icon name="arrow-up-right" size={16} />
+        </a>
+        <a href={appLinks.quick} class="btn btn-ghost justify-center" data-cta="footer-quick-rule">
+          Try a quick rule
+          <Icon name="arrow-up-right" size={16} />
+        </a>
+      </div>
+      <p class="mt-4 text-fluid-xs text-subtle">
+        Broker paths advertised: {brokers.map((broker) => broker.name).join(', ')}.
+      </p>
+      <ul class="mt-4 space-y-2 text-muted">
+        {legalNav.map((item) => (
+          <li><a class="hover:text-fg inline-flex items-center gap-1" href={item.href}>{item.label}</a></li>
         ))}
         <li>
-          <a class="hover:text-fg inline-flex items-center gap-1 min-h-11" href={`mailto:${site.contactEmail}`}>
+          <a class="hover:text-fg inline-flex items-center gap-1" href={`mailto:${site.contactEmail}`}>
             {site.contactEmail}
             <Icon name="arrow-up-right" size={14} />
           </a>
         </li>
       </ul>
-    </nav>
-  </div>
-
-  <div class="container-app pb-6">
-    <CTraderBannerAd label="Open a cTrader account — sponsored" />
-    <p class="text-subtle text-fluid-xs text-center mt-2">
-      We use cTrader to run our engine. Signup via this link supports Glitch Trade.
-    </p>
+    </div>
   </div>
 
   <div class="container-app flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pb-10 text-fluid-xs text-subtle">
     <p>© {year} {site.parent}. All rights reserved.</p>
-    <p class="font-mono">Built on Astro · Deployed on Cloudflare</p>
+    <p class="font-mono">Inter UI · JetBrains Mono numbers · Astro on Cloudflare</p>
   </div>
 </footer>

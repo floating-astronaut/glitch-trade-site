@@ -1,130 +1,37 @@
 ---
 import Icon from '~/components/Icon.astro';
-
-// Trial structure lifted from the legacy "How It Works" flow: connect,
-// analyze, execute. Kept the three-step rhythm so the template parallel holds.
-const steps = [
-  {
-    week: 'Day 0',
-    title: 'Request a trial key',
-    body:
-      'No credit card. No sales call. Submit the contact form and we\'ll issue you a 7-day evaluation key with access to the REST endpoint, the Telegram surface, and the paper harness. Seven days of full tool access starts the moment the key lands in your inbox.',
-  },
-  {
-    week: 'Day 1–6',
-    title: 'Run the tools on your own data',
-    body:
-      'Query the ensemble against any CCXT-listed pair — BTC, ETH, SOL, XRP, or anything else. All nine models return their sub-scores and a consolidated read. Replay it against the paper harness, wire it into your own CCXT client on testnet, interpret the output the way your desk sees fit.',
-  },
-  {
-    week: 'Day 7',
-    title: 'License the tools or walk away',
-    body:
-      'At the end of the trial we send a license link. Pick a tier — or don\'t. There\'s no auto-charge, no cancellation form, no dark pattern. The decision to keep running the tools, and the decision to place any real trade based on them, is entirely yours.',
-  },
-];
 ---
 
-<section id="pilot" class="py-8 md:py-10 lg:py-12 relative">
-  <div aria-hidden="true" class="pointer-events-none absolute inset-0 -z-10">
-    <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[26rem] w-[50rem] max-w-[90vw] rounded-full
-                bg-[radial-gradient(circle_at_center,rgb(var(--color-brand)/0.10),transparent_60%)] blur-2xl"></div>
-  </div>
-
+<section id="difference" class="py-12 md:py-16 lg:py-20 border-y border-border/40 bg-surface/24">
   <div class="container-app">
-    <div class="max-w-2xl reveal">
-      <p class="eyebrow"><Icon name="shield" size={14} /> 7-day tool evaluation · no card needed</p>
-      <h2 class="mt-4">Evaluate the tools on your own stack — before you license them.</h2>
+    <div class="max-w-3xl reveal">
+      <p class="eyebrow"><Icon name="chart" size={14} /> What category this is</p>
+      <h2 class="mt-4">We do not sell strategies. We host yours.</h2>
       <p class="mt-5 text-fluid-lg text-muted">
-        No "book a demo", no sales call, no credit card up front. Seven days
-        of full tool access — API, paper harness, and Telegram surface — so
-        your desk can decide with evidence, not a pitch deck.
+        That distinction matters. The site should not read like a subscription EA pitch or a promise of edge. Glitch Trade is infrastructure for user-authored trading automation: simple enough for a quick rule, deep enough for a coded strategy and a prop-firm-aware dashboard.
       </p>
     </div>
 
-<div aria-hidden="true" class="hidden md:block reveal mt-10 -mb-4">
-      <svg viewBox="0 0 1040 120" xmlns="http://www.w3.org/2000/svg" class="w-full max-w-4xl mx-auto">
-        <!-- dashed backbone -->
-        <line x1="120" y1="60" x2="920" y2="60"
-              stroke="rgb(var(--color-border))" stroke-width="2"
-              stroke-dasharray="6 8" />
-
-        <!-- progress overlay -->
-        <line x1="120" y1="60" x2="920" y2="60"
-              stroke="url(#pilot-grad)" stroke-width="3" stroke-linecap="round" />
-
-        <defs>
-          <linearGradient id="pilot-grad" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%"   stop-color="rgb(var(--color-brand))" stop-opacity="0.15" />
-            <stop offset="100%" stop-color="rgb(var(--color-brand))" stop-opacity="0.95" />
-          </linearGradient>
-        </defs>
-
-        <!-- node 1 -->
-        <g transform="translate(120 60)">
-          <circle r="22" fill="rgb(var(--color-surface))" stroke="rgb(var(--color-brand))" stroke-width="2" />
-          <text x="0" y="5" text-anchor="middle"
-                font-family="ui-monospace, 'Geist Mono', monospace"
-                font-size="12" font-weight="700"
-                fill="rgb(var(--color-brand))">01</text>
-        </g>
-        <text x="120" y="110" text-anchor="middle"
-              font-family="ui-monospace, 'Geist Mono', monospace"
-              font-size="11" letter-spacing="0.06em"
-              fill="rgb(var(--color-muted))">DAY 0</text>
-
-        <!-- node 2 -->
-        <g transform="translate(520 60)">
-          <circle r="22" fill="rgb(var(--color-surface))" stroke="rgb(var(--color-brand))" stroke-width="2" />
-          <text x="0" y="5" text-anchor="middle"
-                font-family="ui-monospace, 'Geist Mono', monospace"
-                font-size="12" font-weight="700"
-                fill="rgb(var(--color-brand))">02</text>
-        </g>
-        <text x="520" y="110" text-anchor="middle"
-              font-family="ui-monospace, 'Geist Mono', monospace"
-              font-size="11" letter-spacing="0.06em"
-              fill="rgb(var(--color-muted))">DAY 1–6</text>
-
-        <!-- node 3 (filled = destination) -->
-        <g transform="translate(920 60)">
-          <circle r="22" fill="rgb(var(--color-brand))" stroke="rgb(var(--color-brand))" stroke-width="2" />
-          <text x="0" y="5" text-anchor="middle"
-                font-family="ui-monospace, 'Geist Mono', monospace"
-                font-size="12" font-weight="700"
-                fill="rgb(var(--color-brand-ink))">03</text>
-        </g>
-        <text x="920" y="110" text-anchor="middle"
-              font-family="ui-monospace, 'Geist Mono', monospace"
-              font-size="11" letter-spacing="0.06em"
-              fill="rgb(var(--color-muted))">DAY 7</text>
-      </svg>
-    </div>
-    <ol class="mt-14 grid gap-5 md:grid-cols-3" role="list">
-      {steps.map((s, i) => (
-        <li class="card p-6 md:p-7 reveal relative">
-          <span class="absolute -top-3 left-6 font-mono text-fluid-xs uppercase tracking-wider
-                       bg-bg px-2 py-0.5 border border-border text-brand rounded-full">
-            {s.week}
-          </span>
-          <div class="flex items-center gap-3 mt-3">
-            <span class="font-mono text-fluid-xs text-subtle">0{i + 1}</span>
-            <h3 class="text-fluid-xl">{s.title}</h3>
-          </div>
-          <p class="mt-4 text-fluid-sm text-muted leading-relaxed" set:html={s.body}></p>
-        </li>
+    <div class="mt-10 overflow-hidden rounded-2xl border border-border/60">
+      <div class="grid grid-cols-[1.1fr_1fr_1fr_1.1fr] bg-surface-2/70 text-fluid-xs uppercase tracking-[0.18em] text-subtle">
+        <div class="px-4 py-3">Comparison</div>
+        <div class="px-4 py-3">TradingView only</div>
+        <div class="px-4 py-3">Broker-native only</div>
+        <div class="px-4 py-3">Glitch Trade</div>
+      </div>
+      {[
+        ['Execution', 'Alerts and charting, no hosted execution path', 'One broker, one account view', 'Run rules across supported broker paths with one marketing and tracking model'],
+        ['Backtesting', 'Depends on your own setup', 'Usually limited or broker-specific', 'Built into the platform with optional Firm Mode guardrails'],
+        ['Tracking', 'Separate from execution', 'Single-broker dashboard', 'Universal multi-account dashboard with per-bot attribution'],
+        ['Prop challenges', 'No native challenge tracking', 'Rarely challenge-aware', 'Firm Mode for FundingPips, FTMO, MFF, Apex, The5ers'],
+      ].map((row) => (
+        <div class="grid grid-cols-[1.1fr_1fr_1fr_1.1fr] border-t border-border/60 bg-bg/55 text-fluid-sm">
+          <div class="px-4 py-4 font-semibold text-fg">{row[0]}</div>
+          <div class="px-4 py-4 text-muted">{row[1]}</div>
+          <div class="px-4 py-4 text-muted">{row[2]}</div>
+          <div class="px-4 py-4 text-fg/90">{row[3]}</div>
+        </div>
       ))}
-    </ol>
-
-    <div class="mt-10 flex flex-wrap items-center gap-3 reveal">
-      <a href="#contact" class="btn btn-primary">
-        Start a 7-day evaluation
-        <Icon name="arrow-right" size={16} />
-      </a>
-      <p class="text-fluid-xs text-subtle">
-        Your funds and exchange API keys never touch our infrastructure. We ship
-        tools; the operator runs the book. Let the evaluation expire any time.
-      </p>
     </div>
   </div>
 </section>

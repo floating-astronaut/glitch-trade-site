@@ -1,69 +1,30 @@
 ---
 import Icon from '~/components/Icon.astro';
-
-// Native <details>/<summary> = zero JS, fully accessible, works without
-// hydration. The chevron rotates via CSS on the open state.
-const faqs = [
-  {
-    q: 'Is this financial advice?',
-    a: 'No. Glitch Trade is an AI software product licensed to trading operators. Ensemble outputs, backtests, and anything the tool produces are information — not a recommendation, solicitation, or advice to buy, sell, or hold any asset. Every trading decision is yours. We don\'t know your book, your tax situation, your risk mandate, or your local regulations, and we can\'t act as your advisor. Trading crypto involves substantial risk including total loss of capital.',
-  },
-  {
-    q: 'Do you place orders on my exchange?',
-    a: 'No. We never touch your exchange and we never execute on your behalf. The tools produce structured output — direction, confidence, volatility estimate, suggested bracket — and your desk wires that into your own CCXT client, your own OMS, or whatever execution stack you already run. Order placement, sizing, risk gates, and cancels are entirely the operator\'s responsibility. We ship tools; you run the book.',
-  },
-  {
-    q: 'How do I consume the tool output?',
-    a: 'Three surfaces today: a REST endpoint for programmatic pulls, a webhook for event-driven pipelines, and a Telegram surface for manual review. All three expose the same payload — ticker, direction (long / short / hold), ensemble confidence, nine sub-scores, and a suggested volatility-sized bracket. Latency from candle close to output availability is typically under five seconds. Telegram is just one surface, not the product.',
-  },
-  {
-    q: 'What assets are covered?',
-    a: 'Today: crypto spot pairs. The Starter tier exposes a BTC / ETH / SOL / XRP watchlist; higher tiers expose any CCXT-listed pair on demand. Forex and commodity support is on the roadmap — if that\'s what you need, email support@glitchexecutor.com and we\'ll tell you where it is.',
-  },
-  {
-    q: 'What happens if I lose money trading on the tool\'s output?',
-    a: 'That risk sits entirely with the operator. We are not a fiduciary, not an advisor, and not a managed-service provider. The tools produce information; you choose whether, when, and how to act on it, with your own capital, on your own infrastructure. Losses (and profits) are yours. If you\'re not sure whether this product fits your mandate, that\'s a conversation for a licensed advisor, not our support inbox.',
-  },
-  {
-    q: 'How does the ensemble handle low-conviction setups?',
-    a: 'The aggregator only emits a directional read above a minimum confidence threshold — below the gate, the output is hold. Every read also carries a volatility-derived bracket (suggested stop-loss and take-profit) the operator can use, ignore, or adapt to their own risk framework. No model (and no trader) is right every time; the ensemble\'s design aggregates nine views to filter the worst setups. Past tool behavior on any historical tape does not guarantee future results.',
-  },
-];
+import { faqs } from '~/lib/marketing';
 ---
 
-<section id="faq" class="py-8 md:py-10 lg:py-12 border-t border-border/40">
-  <div class="container-app grid md:grid-cols-12 gap-10">
+<section id="faq" class="py-12 md:py-16 lg:py-20 border-t border-border/40">
+  <div class="container-app grid gap-10 md:grid-cols-12">
     <div class="md:col-span-4 reveal">
       <p class="eyebrow"><Icon name="spark" size={14} /> FAQ</p>
-      <h2 class="mt-4">The questions every operator asks before they license the tools.</h2>
-      <p class="mt-5 text-fluid-base text-muted">
-        Answered up front so your desk can decide with evidence, not a support ticket.
-      </p>
+      <h2 class="mt-4">The trust questions should be answered on the page.</h2>
+      <p class="mt-5 text-fluid-base text-muted">The new copy should remove the usual friction fast: no alpha claims, no custody confusion, no “is this just for prop firms?” misunderstanding.</p>
     </div>
 
     <div class="md:col-span-8">
       <ul class="divide-y divide-border/60 border-y border-border/60" role="list">
-        {faqs.map((f) => (
+        {faqs.map((faq) => (
           <li>
             <details class="group">
-              <summary
-                class="flex items-start justify-between gap-4 py-5 cursor-pointer list-none
-                       focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand rounded-md"
-              >
-                <span class="text-fluid-base font-medium pr-2">{f.q}</span>
-                <span
-                  aria-hidden="true"
-                  class="shrink-0 mt-1 size-6 inline-flex items-center justify-center rounded-full border border-border text-subtle
-                         transition-transform duration-200 group-open:rotate-45 group-open:text-brand group-open:border-brand/50"
-                >
+              <summary class="flex items-start justify-between gap-4 py-5 cursor-pointer list-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand rounded-md">
+                <span class="text-fluid-base font-medium pr-2">{faq.q}</span>
+                <span aria-hidden="true" class="shrink-0 mt-1 size-6 inline-flex items-center justify-center rounded-full border border-border text-subtle transition-transform duration-200 group-open:rotate-45 group-open:text-brand group-open:border-brand/50">
                   <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true">
                     <path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
                   </svg>
                 </span>
               </summary>
-              <div class="pb-5 pr-8 text-fluid-sm text-muted leading-relaxed">
-                {f.a}
-              </div>
+              <div class="pb-5 pr-8 text-fluid-sm text-muted leading-relaxed">{faq.a}</div>
             </details>
           </li>
         ))}

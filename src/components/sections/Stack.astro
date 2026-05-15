@@ -1,126 +1,48 @@
 ---
 import Icon from '~/components/Icon.astro';
-
-// Only surface integrations that the legacy site already referenced publicly.
-// Internal model orchestration (LangGraph, pgvector, Redis, Postgres) is listed
-// at a category level — no deployment specifics.
-const stack = [
-  { icon: 'cpu' as const,      name: '9-model ML ensemble',        note: 'Weighted aggregator, confidence-gated' },
-  { icon: 'send' as const,     name: 'REST / Webhook / Telegram',  note: 'Output surfaces — operator\'s choice' },
-  { icon: 'link' as const,     name: 'CCXT adapters (100+ venues)',note: 'Reference clients — you wire the execution' },
-  { icon: 'bolt' as const,     name: 'LLM sentiment layer',        note: 'News + social + Fear &amp; Greed, as a sub-score' },
-  { icon: 'database' as const, name: 'Vector memory',              note: 'Pattern recall across regimes' },
-  { icon: 'chart' as const,    name: 'Walk-forward backtest harness', note: 'Fee-inclusive, out-of-sample' },
-  { icon: 'shield' as const,   name: 'Paper / testnet replay',     note: 'Validate tool output before wiring live' },
-  { icon: 'layers' as const,   name: 'Cloudflare edge',            note: 'Pages, Workers, Turnstile' },
-];
+import { tiers, appLinks } from '~/lib/marketing';
 ---
 
-<section id="stack" class="py-8 md:py-10 lg:py-12">
+<section id="pricing-preview" class="py-12 md:py-16 lg:py-20 border-y border-border/40 bg-surface/24">
   <div class="container-app">
-    <div class="max-w-2xl reveal">
-      <p class="eyebrow"><Icon name="code" size={14} /> Under the hood</p>
-      <h2 class="mt-4">A toolkit built for operators, not demos.</h2>
-      <p class="mt-5 text-fluid-lg text-muted">
-        The ensemble, the sentiment layer, and the backtest harness run on
-        infrastructure we own and license to you. Order flow, API keys, and
-        capital run on infrastructure <em class="not-italic text-fg">you</em>
-        own — no black-box SaaS moat sitting between the operator and the market.
-      </p>
+    <div class="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between reveal">
+      <div class="max-w-3xl">
+        <p class="eyebrow"><Icon name="bolt" size={14} /> Locked pricing</p>
+        <h2 class="mt-4">Four tiers, one marketplace, no invented upsells.</h2>
+        <p class="mt-5 text-fluid-lg text-muted">
+          The floor is low enough for a casual trader. The ceiling is high enough for a quant workflow. Marketplace authors keep 70% when they sell strategies; Glitch Trade takes 30%.
+        </p>
+      </div>
+      <a href="/pricing" class="inline-flex items-center gap-2 text-fluid-sm text-brand hover:text-electric">See full pricing table <Icon name="arrow-up-right" size={14} /></a>
     </div>
 
-<div aria-hidden="true" class="hidden md:block reveal mt-12 mb-4">
-      <svg viewBox="0 0 1080 300" xmlns="http://www.w3.org/2000/svg" class="w-full max-w-5xl mx-auto">
-        <defs>
-          <marker id="arr-trade" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-            <path d="M0,0 L10,5 L0,10 Z" fill="rgb(var(--color-brand) / 0.7)" />
-          </marker>
-          <marker id="arr-trade-dim" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-            <path d="M0,0 L10,5 L0,10 Z" fill="rgb(var(--color-border) / 0.9)" />
-          </marker>
-        </defs>
-
-        <g font-family="ui-monospace, monospace" font-size="12">
-          <g transform="translate(40 30)">
-            <rect width="200" height="44" rx="8" fill="rgb(var(--color-surface) / 0.9)" stroke="rgb(var(--color-border))" />
-            <text x="14" y="19" fill="rgb(var(--color-fg))" font-weight="700">Exchange OHLCV</text>
-            <text x="14" y="35" fill="rgb(var(--color-subtle))">CCXT · 100+ venues</text>
-          </g>
-          <g transform="translate(40 90)">
-            <rect width="200" height="44" rx="8" fill="rgb(var(--color-surface) / 0.9)" stroke="rgb(var(--color-border))" />
-            <text x="14" y="19" fill="rgb(var(--color-fg))" font-weight="700">News + social feed</text>
-            <text x="14" y="35" fill="rgb(var(--color-subtle))">sentiment sub-score</text>
-          </g>
-          <g transform="translate(40 150)">
-            <rect width="200" height="44" rx="8" fill="rgb(var(--color-surface) / 0.9)" stroke="rgb(var(--color-border))" />
-            <text x="14" y="19" fill="rgb(var(--color-fg))" font-weight="700">Fear &amp; Greed index</text>
-            <text x="14" y="35" fill="rgb(var(--color-subtle))">regime context</text>
-          </g>
-          <g transform="translate(40 210)">
-            <rect width="200" height="44" rx="8" fill="rgb(var(--color-surface) / 0.9)" stroke="rgb(var(--color-border))" />
-            <text x="14" y="19" fill="rgb(var(--color-fg))" font-weight="700">Vector memory (pgvector)</text>
-            <text x="14" y="35" fill="rgb(var(--color-subtle))">regime-analog recall</text>
-          </g>
-        </g>
-
-        <g transform="translate(420 68)">
-          <rect width="240" height="170" rx="12"
-                fill="rgb(var(--color-brand) / 0.06)"
-                stroke="rgb(var(--color-brand))" stroke-width="1.5" />
-          <text x="120" y="32" text-anchor="middle"
-                font-family="ui-monospace, monospace" font-size="13" font-weight="700"
-                fill="rgb(var(--color-brand))">9-MODEL ENSEMBLE</text>
-          <g font-family="ui-monospace, monospace" font-size="11" fill="rgb(var(--color-fg))">
-            <text x="24" y="62">trend · momentum · mean-rev</text>
-            <text x="24" y="84">ML · volume · session</text>
-            <text x="24" y="106">multi-TF · sentiment</text>
-            <text x="24" y="128">+ weighted aggregator</text>
-            <text x="24" y="154" fill="rgb(var(--color-brand))">→ confidence gate</text>
-          </g>
-        </g>
-
-        <g font-family="ui-monospace, monospace" font-size="12">
-          <g transform="translate(840 60)">
-            <rect width="200" height="44" rx="8" fill="rgb(var(--color-surface) / 0.9)" stroke="rgb(var(--color-brand) / 0.5)" />
-            <text x="14" y="19" fill="rgb(var(--color-fg))" font-weight="700">REST / webhook</text>
-            <text x="14" y="35" fill="rgb(var(--color-subtle))">your client, your execution</text>
-          </g>
-          <g transform="translate(840 120)">
-            <rect width="200" height="44" rx="8" fill="rgb(var(--color-surface) / 0.9)" stroke="rgb(var(--color-brand) / 0.5)" />
-            <text x="14" y="19" fill="rgb(var(--color-fg))" font-weight="700">Telegram surface</text>
-            <text x="14" y="35" fill="rgb(var(--color-subtle))">signal cards, &lt; 5s latency</text>
-          </g>
-          <g transform="translate(840 180)">
-            <rect width="200" height="44" rx="8" fill="rgb(var(--color-surface) / 0.9)" stroke="rgb(var(--color-brand) / 0.5)" />
-            <text x="14" y="19" fill="rgb(var(--color-fg))" font-weight="700">Paper harness</text>
-            <text x="14" y="35" fill="rgb(var(--color-subtle))">testnet + walk-forward</text>
-          </g>
-        </g>
-
-        <g stroke="rgb(var(--color-border) / 0.9)" stroke-width="1.5" fill="none" marker-end="url(#arr-trade-dim)">
-          <path d="M244 52 Q340 52 416 100" />
-          <path d="M244 112 Q340 112 416 130" />
-          <path d="M244 172 Q340 172 416 170" />
-          <path d="M244 232 Q340 232 416 200" />
-        </g>
-
-        <g stroke="rgb(var(--color-brand) / 0.7)" stroke-width="1.5" fill="none" marker-end="url(#arr-trade)">
-          <path d="M664 100 Q750 100 836 82" />
-          <path d="M664 140 Q750 140 836 142" />
-          <path d="M664 180 Q750 180 836 202" />
-        </g>
-      </svg>
-    </div>
-    <ul class="mt-12 grid grid-cols-2 md:grid-cols-4 gap-3" role="list">
-      {stack.map((s) => (
-        <li class="card px-4 py-4 flex items-center gap-3 reveal">
-          <span class="text-brand"><Icon name={s.icon} size={22} /></span>
-          <span class="flex-1 min-w-0">
-            <span class="block text-fluid-sm font-medium truncate">{s.name}</span>
-            <span class="block text-fluid-xs text-subtle" set:html={s.note}></span>
-          </span>
-        </li>
+    <div class="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+      {tiers.map((tier) => (
+        <article class={`card reveal h-full p-6 ${tier.featured ? 'border-brand/40 bg-brand/8' : ''}`}>
+          <p class="font-mono text-fluid-xs uppercase tracking-[0.18em] text-brand">{tier.name}</p>
+          <div class="mt-4 flex items-end gap-1">
+            <span class="font-mono text-fluid-3xl text-fg">{tier.price}</span>
+            <span class="text-fluid-sm text-subtle">{tier.cadence}</span>
+          </div>
+          <p class="mt-4 text-fluid-sm text-muted">{tier.audience}</p>
+          <ul class="mt-5 space-y-2 text-fluid-sm text-fg/90">
+            {tier.features.map((feature) => (
+              <li class="flex items-start gap-2"><span class="mt-[5px] size-1.5 rounded-full bg-brand"></span><span>{feature}</span></li>
+            ))}
+          </ul>
+        </article>
       ))}
-    </ul>
+    </div>
+
+    <div class="mt-8 flex flex-wrap gap-3 reveal">
+      <a href={appLinks.signup} class="btn btn-primary" data-cta="pricing-preview-start-free">
+        Start free
+        <Icon name="arrow-up-right" size={16} />
+      </a>
+      <a href={appLinks.quick} class="btn btn-ghost" data-cta="pricing-preview-quick-rule">
+        Try a quick rule
+        <Icon name="arrow-up-right" size={16} />
+      </a>
+    </div>
   </div>
 </section>

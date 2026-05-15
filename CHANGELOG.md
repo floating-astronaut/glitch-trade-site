@@ -13,7 +13,10 @@ Body text (if present) shown as indented sub-bullets.
 
 ## 2026-05-15
 
-- **21:18 UTC** — footer: mount cTrader affiliate banner (`aa31a21`) — 2 files
+- **21:48 UTC** — auto-sync: 2026-05-15 21:48 UTC (`26f8051`) — 2 files
+        M	package-lock.json
+        M	package.json
+- **21:33 UTC** — footer: mount cTrader affiliate banner (`480640c`) — 2 files
     Adds a 320×50 sponsored banner above the copyright row, linking through
     our impact.com partner ID. Pairs with the new
     src/components/CTraderBannerAd.astro component (auto-synced earlier
