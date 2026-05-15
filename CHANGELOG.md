@@ -11,9 +11,23 @@ Body text (if present) shown as indented sub-bullets.
 
 ---
 
+## 2026-05-16
+
+- **02:48 UTC** — brand: update Glitch Trade logo across favicon + brand assets + OG (`ccef2fa`) — 13 files
+    Pulls the new user-uploaded cobra mascot through to every brand-asset
+    slot on the marketing site:
+      public/assets/brand/logo-{256,512}.png
+      public/assets/brand/mascot-{256,512}.png
+      public/assets/brand/og-image.png  (1200x630 social card, regenerated)
+      public/assets/brand/favicon.ico
+      public/assets/brand/favicon-{16,32,48}.png
+      public/assets/brand/apple-touch-icon.png
+      public/assets/brand/icon-{192,512}.png
+    White background re-keyed to alpha so the cobra renders cleanly on
+
 ## 2026-05-15
 
-- **21:54 UTC** — Marketing copy: rev 4 positioning refresh (`61359ee`) — 23 files
+- **22:33 UTC** — Marketing copy: rev 4 positioning refresh (`b077584`) — 24 files
 - **21:48 UTC** — auto-sync: 2026-05-15 21:48 UTC (`e06cdda`) — 3 files
         M	package-lock.json
         M	package.json
