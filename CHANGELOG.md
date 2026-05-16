@@ -13,7 +13,24 @@ Body text (if present) shown as indented sub-bullets.
 
 ## 2026-05-16
 
-- **03:17 UTC** — auto-sync: 2026-05-16 03:17 UTC (`2829781`) — 1 file
+- **07:31 UTC** — chore: remove ai-seo-program.md (repo retired; moved to glitch-trade-app) (`77c0677`) — 1 file
+    The Trade marketing surface has been folded into glitch-trade-app
+    (Vite + React SPA with prerendering). The AI-SEO playbook now lives
+    in that repo at docs/ai-seo-program.md and reflects the new
+    architecture (two surfaces: app + Mintlify docs).
+    Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>
+- **07:26 UTC** — docs: AI SEO Star Project playbook (Trade ecosystem) (`cb7d877`) — 1 file
+    Kickoff document for the unified AI-SEO program across the three
+    Trade surfaces — marketing site (Astro), React SPA (Vite), and docs
+    (Mintlify). Mirrors the structure proven on grow.glitchexecutor.com
+    and edge.glitchexecutor.com, adapted to the prop-firm challenge
+    automation + algo-trading vertical.
+    Includes 10-phase plan (foundation → comparison cluster → tools →
+    pSEO → team → tracker → blog → docs SEO → app SEO → off-page),
+    verification gates, scope boundaries, and the explicit /app/*
+    guardrail (mirrors edge's separation between Astro site and React
+    SPA).
+- **03:17 UTC** — auto-sync: 2026-05-16 03:17 UTC (`2623a94`) — 1 file
         M	CHANGELOG.md
 - **03:03 UTC** — brand: update Glitch Trade logo across favicon + brand assets + OG (`a2ac71e`) — 13 files
     Pulls the new user-uploaded cobra mascot through to every brand-asset
