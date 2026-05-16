@@ -13,7 +13,9 @@ Body text (if present) shown as indented sub-bullets.
 
 ## 2026-05-16
 
-- **02:48 UTC** — brand: update Glitch Trade logo across favicon + brand assets + OG (`ccef2fa`) — 13 files
+- **03:17 UTC** — auto-sync: 2026-05-16 03:17 UTC (`2829781`) — 1 file
+        M	CHANGELOG.md
+- **03:03 UTC** — brand: update Glitch Trade logo across favicon + brand assets + OG (`a2ac71e`) — 13 files
     Pulls the new user-uploaded cobra mascot through to every brand-asset
     slot on the marketing site:
       public/assets/brand/logo-{256,512}.png
